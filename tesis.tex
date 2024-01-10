@@ -6,6 +6,7 @@
 \usepackage[fixlanguage]{babelbib}
 
 % Otros paquetes instalados
+
 % Básicos
 \usepackage{array}
 \usepackage[numbers,sort&compress]{natbib}
@@ -16,14 +17,15 @@
 \usepackage{longtable}
 \usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
 \usepackage{xurl}
+
 %Tablas
 \usepackage{caption}
 \usepackage{booktabs}
 \usepackage{setspace}
 \usepackage{multirow}
+
 % Para dibujar figuras
 \usepackage{tikz}
-
 
 % Para cambiar el color de las letras
 \usepackage{color}
@@ -80,7 +82,7 @@
 \SetKw{Continue}{continuar}
 \SetKw{Break}{romper}
 
-% Footnotes
+% Para notas a pie de pagina
 \usepackage[bottom]{footmisc}
 
 % Paquetes locales
@@ -99,14 +101,17 @@
 % Interpárrafo
 \setlength{\parskip}{16.5pt}
 
+% Margenes
 \topmargin 2cm
 
+% Renombrando nombres de tablas y acrónimos
 \renewcommand{\tablename}{Tabla}
 \newcommand\listsymbolname{Lista de acrónimos}
 
 % Joao Inline Math
 \newcommand{\jim}[1]{\(#1\)}
 
+% Portada
 \clearpage
 \newpage
 \begin{titlepage}
@@ -141,9 +146,10 @@
 % TODO: Agregar luego de la aprobación
 
 
-%% RESUMEN
+% Resumen
 \input{./partes/resumen}
 
+% Dedicatoria
 \dedicatory{
 \addtocontents{toc}{\vspace{1em}}
 \begin{flushright}
@@ -214,6 +220,7 @@ A mi abuelo \textbf{Victor Julio} que en paz descanse, por ser mi inspiración. 
 \listofalgorithms
 \addcontentsline{toc}{chapter}{Índice de algoritmos}
 
+% Lista de acrónimos
 \setstretch{1.5}
 \clearpage
 \lhead{\emph{Lista de acrónimos}}
@@ -262,24 +269,15 @@ A mi abuelo \textbf{Victor Julio} que en paz descanse, por ser mi inspiración. 
 }
 
 
-
-%% ----------------------------------------------------------------
-% End of the pre-able, contents and lists of things
-% Begin the Dedication page
-
-\setstretch{1.3}  % Return the line spacing back to 1.3
-
-\pagestyle{empty}  % Page style needs to be empty for this page
+\setstretch{1.3} 
+\pagestyle{empty}
 
 
 \addtocontents{toc}{\vspace{2em}}
 \mainmatter
 \pagestyle{fancy}
 
-% Se incluye el cuerpo de la tesis en esqte documento.
-
-% El número de capítulos varía. En mi libro fueron cuatro (sin contar
-% introducción y conclusión).
+% Se incluye el cuerpo de la tesis en este documento.
 \input{./partes/capitulo1}
 \input{./partes/capitulo2}
 \input{./partes/capitulo3}
@@ -288,7 +286,7 @@ A mi abuelo \textbf{Victor Julio} que en paz descanse, por ser mi inspiración. 
 \input{./partes/capitulo6}
 \input{./partes/capitulo7}
 
-% El estilo de la bibliografía es AAAI, definido en el archivo aaai.bst.
+% Bibliografia
 \label{Bibliography}
 \bibliographystyle{babunsrt}
 %\bibliographystyle{unsrt}
