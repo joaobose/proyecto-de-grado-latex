@@ -18,14 +18,14 @@ Como se menciono en el capitulo anterior, el objetivo del ajuste fino de la pol�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.65]{partes/ImgJoao/loss-space-all.png}
+    \includegraphics[scale=0.65]{partes/img/loss-space-all.png}
     \caption[Componente espacial de la pérdida vs. época (ajuste fino).]{Componente espacial de la pérdida vs. época (ajuste fino). Se observa claramente la divergencia de la perdida sobre el conjunto de validación a partir de la época 215.}
     \label{fig:loss-space-all}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.65]{partes/ImgJoao/loss-estim-all.png}
+    \includegraphics[scale=0.65]{partes/img/loss-estim-all.png}
     \caption[Componente de estimación de la pérdida vs. época (ajuste fino).]{Componente de estimación de la pérdida vs. época (ajuste fino). Se observa claramente la divergencia de la pérdida sobre el conjunto de validación a partir de la época 215.}
     \label{fig:loss-estim-all}
 \end{figure}
@@ -34,14 +34,14 @@ Las figuras \ref{fig:loss-space-all} y \ref{fig:loss-estim-all} reflejan la dive
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.65]{partes/ImgJoao/loss-space-stopped.png}
+    \includegraphics[scale=0.65]{partes/img/loss-space-stopped.png}
     \caption[Componente espacial de la pérdida vs. época (ajuste fino) luego de detener el entrenamiento tempranamente.]{Componente espacial de la pérdida vs. época (ajuste fino) luego de detener el entrenamiento tempranamente. No se observa divergencia en el valor de la pérdida sobre el conjunto de validación.}
     \label{fig:loss-space-stopped}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.65]{partes/ImgJoao/loss-estim-stopped.png}
+    \includegraphics[scale=0.65]{partes/img/loss-estim-stopped.png}
     \caption[Componente de estimación de la pérdida vs. época (ajuste fino) luego de detener el entrenamiento tempranamente.]{Componente de estimación de la pérdida vs. época (ajuste fino) luego de detener el entrenamiento tempranamente. No se observa divergencia en el valor de la pérdida sobre el conjunto de validación.}
     \label{fig:loss-estim-stopped}
 \end{figure}
@@ -50,14 +50,14 @@ Los modelos a comparar son el modelo original, que destaca en la capacidad de pr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6]{partes/ImgJoao/loss-space-bars.png}
+    \includegraphics[scale=0.6]{partes/img/loss-space-bars.png}
     \caption[Comparación de los valores del componente de pérdida espacial entre modelo original y modelo ajustado.]{Comparación de los valores de pérdida entre modelo original y modelo ajustado.}
     \label{fig:loss-space-bars}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6]{partes/ImgJoao/loss-estim-bars.png}
+    \includegraphics[scale=0.6]{partes/img/loss-estim-bars.png}
     \caption[Comparación de los valores del componente de pérdida de estimación entre modelo original y modelo ajustado.]{Comparación de los valores del componente de pérdida de estimación entre modelo original y modelo ajustado.}
     \label{fig:loss-estim-bars}
 \end{figure}
@@ -68,14 +68,14 @@ Segundo, y mas relevante para este trabajo, los valores de pérdida del modelo a
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{partes/ImgJoao/7ms-sample.png}
+    \includegraphics[scale=0.4]{partes/img/7ms-sample.png}
     \caption[Visualización de tres vuelos de la base de datos con \jim{v_{des} = 7} m/s.]{Visualización de tres vuelos de la base de datos con \jim{v_{des} = 7} m/s.}
     \label{fig:7ms-sample}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{partes/ImgJoao/1ms-sample.png}
+    \includegraphics[scale=0.4]{partes/img/1ms-sample.png}
     \caption[Visualización de tres vuelos de la base de datos con \jim{v_{des} = 1} m/s.]{Visualización de tres vuelos de la base de datos con \jim{v_{des} = 1} m/s.}
     \label{fig:1ms-sample}
 \end{figure}
@@ -100,7 +100,7 @@ En esta sección se describen las configuraciones de los vuelos realizados en el
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.35]{partes/ImgJoao/config-1-single.png}
+    \includegraphics[scale=0.35]{partes/img/config-1-single.png}
     \caption[Primera configuración de obstáculos dentro del entorno de AirSim.]{Primera configuración de obstáculos dentro del entorno de AirSim. Obstáculo simple.}
     \label{fig:config-1-single}
 \end{figure}
@@ -109,7 +109,7 @@ El comportamiento del algoritmo se mostró capaz de evadir el obstáculo de form
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.55]{partes/ImgJoao/sim-simgle-panel-graph.png}
+    \includegraphics[scale=0.55]{partes/img/sim-simgle-panel-graph.png}
     \caption[Visualización del camino ejecutado dentro de la primera configuración de obstáculos.]{Visualización del camino ejecutado dentro de la primera configuración de obstáculos. De 10 vuelos ejecutados dentro de esta configuración, 10 resultaron sin colisión.}
     \label{fig:single-graph}
 \end{figure}
@@ -118,7 +118,7 @@ La siguiente configuración utilizada es una configuración similar a la anterio
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.35]{partes/ImgJoao/config-2-double.png}
+    \includegraphics[scale=0.35]{partes/img/config-2-double.png}
     \caption[Segunda configuración de obstáculos dentro del entorno de AirSim.]{Segunda configuración de obstáculos dentro del entorno de AirSim. Dos obstáculos consecutivos en la linea de visión del QUAV.}
     \label{fig:config-2-double}
 \end{figure}
@@ -127,7 +127,7 @@ Tal como en la configuración anterior, el comportamiento de algoritmo fue estab
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.55]{partes/ImgJoao/sim-double-panel-graph.png}
+    \includegraphics[scale=0.55]{partes/img/sim-double-panel-graph.png}
     \caption[Visualización del camino ejecutado dentro de la segunda configuración de obstáculos.]{Visualización del camino ejecutado dentro de la segunda configuración de obstáculos. De 10 vuelos ejecutados dentro de esta configuración, 10 resultaron sin colisión.}
     \label{fig:double-graph}
 \end{figure}
@@ -149,21 +149,21 @@ En las figuras \ref{fig:depth-dual-panel-1}, \ref{fig:depth-dual-panel-2} y \ref
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.225]{partes/ImgJoao/depth-dual-panel-1-first-obs.png}
+    \includegraphics[scale=0.225]{partes/img/depth-dual-panel-1-first-obs.png}
     \caption[Visualización del funcionamiento del mecanismo que desactiva la inferencia cuando no hay obstáculos visibles. Inferencia activada, el primer obstáculo está en el campo de visión.]{Visualización del funcionamiento del mecanismo que desactiva la inferencia cuando no hay obstáculos visibles. Inferencia activada, el primer obstáculo está en el campo de visión.}
     \label{fig:depth-dual-panel-1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.225]{partes/ImgJoao/depth-dual-panel-2-no-obs.png}
+    \includegraphics[scale=0.225]{partes/img/depth-dual-panel-2-no-obs.png}
     \caption[Visualización del funcionamiento del mecanismo que desactiva la inferencia cuando no hay obstáculos visibles. Inferencia desactivada, no hay obstáculo visible en campo de visión, navegando en dirección a la meta.]{Visualización del funcionamiento del mecanismo que desactiva la inferencia cuando no hay obstáculos visibles. Inferencia desactivada, no hay obstáculo visible en campo de visión, navegando en dirección a la meta.}
     \label{fig:depth-dual-panel-2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.225]{partes/ImgJoao/depth-dual-panel-3-second-obs.png}
+    \includegraphics[scale=0.225]{partes/img/depth-dual-panel-3-second-obs.png}
     \caption[Visualización del funcionamiento del mecanismo que desactiva la inferencia cuando no hay obstáculos visibles. Inferencia activada, el segundo obstáculo está en el campo de visión.]{Visualización del funcionamiento del mecanismo que desactiva la inferencia cuando no hay obstáculos visibles. Inferencia activada, el segundo obstáculo está en el campo de visión.}
     \label{fig:depth-dual-panel-3}
 \end{figure}
@@ -172,7 +172,7 @@ Durante todas las pruebas descritas anteriormente, se observó que la política 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.35]{partes/ImgJoao/config-3-parallel.png}
+    \includegraphics[scale=0.35]{partes/img/config-3-parallel.png}
     \caption[Tercera configuración de obstáculos dentro del entorno de AirSim.]{Tercera configuración de obstáculos dentro del entorno de AirSim. Dos obstáculos paralelos con una separación de 2 metros.}
     \label{fig:config-3-parallel}
 \end{figure}
@@ -181,28 +181,28 @@ Incluso con la presencia de un obstáculo adicional en la dirección \jim{-y_B},
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{partes/ImgJoao/depth-parallel-1-topdown.png}
+    \includegraphics[scale=0.3]{partes/img/depth-parallel-1-topdown.png}
     \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista de arriba hacia abajo.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista de arriba hacia abajo. Ambos obstáculos están dentro del campo de visión, las trayectorias generadas se dirigen hacia el espacio entre los obstáculos.}
     \label{fig:depth-parallel-1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{partes/ImgJoao/depth-parallel-2-front.png}
+    \includegraphics[scale=0.25]{partes/img/depth-parallel-2-front.png}
     \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal. Ambos obstáculos están dentro del campo de visión, las trayectorias generadas se dirigen hacia el espacio entre los obstáculos.}
     \label{fig:depth-parallel-2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.32]{partes/ImgJoao/depth-parallel-4-front-red.png}
+    \includegraphics[scale=0.32]{partes/img/depth-parallel-4-front-red.png}
     \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal. Navegando entre el espacio entre los obstáculos.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal. Navegando entre el espacio entre los obstáculos. Ambos obstáculos están dentro del campo de visión, las trayectorias generadas se dirigen hacia el espacio entre los obstáculos.}
     \label{fig:depth-parallel-4}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.32]{partes/ImgJoao/depth-parallel-5-front-collision.png}
+    \includegraphics[scale=0.32]{partes/img/depth-parallel-5-front-collision.png}
     \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal. Colisión.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal. En el momento que uno de los dos obstáculos desaparece del campo de visión, en lugar de continuar dirigiéndose hacia el espacio entre ambos obstáculos, la política intenta corregir la trayectoria para esquivar por el flanco en dirección \jim{-y_B} relativo al obstáculo, lo cual produce una colisión. }
     \label{fig:depth-parallel-5}
 \end{figure}
@@ -212,7 +212,7 @@ Para evaluar esta preferencia fuerte a esquivar por el flanco en la dirección \
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.35]{partes/ImgJoao/config-4-left-wall.png}
+    \includegraphics[scale=0.35]{partes/img/config-4-left-wall.png}
     \caption[Cuarta configuración de obstáculos dentro del entorno de AirSim.]{Cuarta configuración de obstáculos dentro del entorno de AirSim. Obstáculo simple con pared del lado izquierdo.}
     \label{fig:config-4-wall}
 \end{figure}
@@ -221,35 +221,35 @@ Todos los vuelos realizados en esta configuración terminaron en una colisión. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.23]{partes/ImgJoao/depth-wall-1-front.png}
+    \includegraphics[scale=0.23]{partes/img/depth-wall-1-front.png}
     \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista frontal.]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista frontal.}
     \label{depth-wall-1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{partes/ImgJoao/depth-wall-2-top.png}
+    \includegraphics[scale=0.25]{partes/img/depth-wall-2-top.png}
     \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Búsqueda del borde del obstáculo (1).]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Las trayectorias se dirigen hacia la región en dirección \jim{-y_B} sin información de profundidad, probablemente buscando el borde del obstáculo.}
     \label{depth-wall-2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{partes/ImgJoao/depth-wall-3-try-arround.png}
+    \includegraphics[scale=0.25]{partes/img/depth-wall-3-try-arround.png}
     \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Búsqueda del borde del obstáculo (2).]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Las trayectorias continúan dirigiéndose hacia la región en dirección \jim{-y_B} sin información de profundidad, probablemente buscando el borde del obstáculo.}
     \label{depth-wall-3}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{partes/ImgJoao/depth-wall-4-still-go-arround.png}
+    \includegraphics[scale=0.25]{partes/img/depth-wall-4-still-go-arround.png}
     \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Búsqueda del borde del obstáculo (3).]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Las trayectorias continúan dirigiéndose hacia la región en dirección \jim{-y_B} sin información de profundidad, probablemente buscando el borde del obstáculo.}
     \label{depth-wall-4}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{partes/ImgJoao/depth-wall-5-crash.png}
+    \includegraphics[scale=0.25]{partes/img/depth-wall-5-crash.png}
     \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Colisión.]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Al no conseguir el borde del obstáculo a tiempo, se produce una colisión.}
     \label{depth-wall-5}
 \end{figure}
@@ -287,7 +287,7 @@ La primera configuración de obstáculos utilizada fue una configuración simple
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.22]{partes/ImgJoao/real-1-single-0-setup.png}
+    \includegraphics[scale=0.22]{partes/img/real-1-single-0-setup.png}
     \caption[Configuración de obstáculos en entorno real: Obstáculo simple]{Configuración de obstáculos en entorno real: Obstáculo simple.}
     \label{real-1-single-0-setup}
 \end{figure}
@@ -296,14 +296,14 @@ Se realizaron 11 vuelos en esta configuración, y los resultados fueron análogo
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.47]{partes/ImgJoao/real-1-single-2-graph-worst.png}
+    \includegraphics[scale=0.47]{partes/img/real-1-single-2-graph-worst.png}
     \caption[Visualización del camino resultante del vuelo con mayor desviación para un obstáculo simple en entorno real.]{Visualización del camino resultante del vuelo con \textbf{mayor} desviación para un obstáculo simple en entorno real.}
     \label{real-1-single-2-graph-worst}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.47]{partes/ImgJoao/real-1-single-1-graph-best.png}
+    \includegraphics[scale=0.47]{partes/img/real-1-single-1-graph-best.png}
     \caption[Visualización del camino resultante del vuelo con menor desviación para un obstáculo simple en entorno real.]{Visualización del camino resultante del vuelo con \textbf{menor} desviación para un obstáculo simple en entorno real.}
     \label{real-1-single-1-graph-best}
 \end{figure}
@@ -312,42 +312,42 @@ En todos los vuelos ejecutados en esta configuración, el algoritmo esquivó el 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{partes/ImgJoao/real-1-single-3-frames-1.png}
+    \includegraphics[scale=0.25]{partes/img/real-1-single-3-frames-1.png}
     \caption[Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple (1).]{Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple (1). \textbf{(a)} Comienza el vuelo. \textbf{(b)} Se comienza a esquivar el obstáculo.}
     \label{real-1-single-3-frames-1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.255]{partes/ImgJoao/real-1-single-3-frames-2.png}
+    \includegraphics[scale=0.255]{partes/img/real-1-single-3-frames-2.png}
     \caption[Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple (2).]{Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple (2). En \textbf{(c)} y \textbf{(d)}, se esquiva el obstáculo por el flanco izquierdo.}
     \label{real-1-single-3-frames-2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.245]{partes/ImgJoao/real-1-single-3-frames-3.png}
+    \includegraphics[scale=0.245]{partes/img/real-1-single-3-frames-3.png}
     \caption[Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple (3).]{Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple (3). En \textbf{(e)} y \textbf{(f)}, como no se observan obstáculos, se navega en dirección a la meta.}
     \label{real-1-single-3-frames-3}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.24]{partes/ImgJoao/real-1-single-4-frames-1.png}
+    \includegraphics[scale=0.24]{partes/img/real-1-single-4-frames-1.png}
     \caption[Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple. Vista frontal (1).]{Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple. Vista frontal (1). \textbf{(a)} Antes del despegue. \textbf{(b)} Comienza el vuelo.}
     \label{real-1-single-4-frames-1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.24]{partes/ImgJoao/real-1-single-4-frames-2.png}
+    \includegraphics[scale=0.24]{partes/img/real-1-single-4-frames-2.png}
     \caption[Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple. Vista frontal (2).]{Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple. Vista frontal (2). En \textbf{(c)} y \textbf{(d)}, se esquiva el obstáculo por el flanco izquierdo.}
     \label{real-1-single-4-frames-2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.24]{partes/ImgJoao/real-1-single-4-frames-3.png}
+    \includegraphics[scale=0.24]{partes/img/real-1-single-4-frames-3.png}
     \caption[Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple. Vista frontal (3).]{Capturas de una grabación de uno de los vuelos en entorno real con un obstáculo simple. Vista frontal (3). En \textbf{(e)} y \textbf{(f)}, como no se observan obstáculos, se navega en dirección a la meta.}
     \label{real-1-single-4-frames-3}
 \end{figure}
@@ -358,14 +358,14 @@ En el primer vuelo en esta configuración se utilizó una separación de 3 metro
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.22]{partes/ImgJoao/real-2-parallelA-0-config.png}
+    \includegraphics[scale=0.22]{partes/img/real-2-parallelA-0-config.png}
     \caption[Configuración de obstáculos en entorno real: Obstáculos paralelos a 3 metros de separación.]{Configuración de obstáculos en entorno real: Obstáculos paralelos a 3 metros de separación.}
     \label{real-2-parallelA-0-config}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{partes/ImgJoao/real-2-parallelA-1-frames.png}
+    \includegraphics[scale=0.25]{partes/img/real-2-parallelA-1-frames.png}
     \caption[Capturas de la grabación del vuelo en entorno real con obstáculos paralelos a 3 metros de separación.]{Capturas de la grabación del vuelo en entorno real con obstáculos paralelos a 3 metros de separación. \textbf{(a)} La ejecución comienza. \textbf{(b)} El QUAV se dirige hacia el espacio entre ambos obstáculos en lugar de esquivar los obstáculos por el flanco derecho. \textbf{(c)} Cuando el obstáculo derecho sale del campo de visión, el algoritmo intenta esquivar el obstáculo que aun es visible por el flanco izquierdo, lo cual produce una colisión inminente.}
     \label{real-2-parallelA-1-frames}
 \end{figure}
@@ -374,14 +374,14 @@ El segundo vuelo en la configuración de obstáculos paralelos utilizó una sepa
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.27]{partes/ImgJoao/real-3-parallelB-0-config.png}
+    \includegraphics[scale=0.27]{partes/img/real-3-parallelB-0-config.png}
     \caption[Configuración de obstáculos en entorno real: Obstáculos paralelos a 4 metros de separación.]{Configuración de obstáculos en entorno real: Obstáculos paralelos a 4 metros de separación.}
     \label{real-3-parallelB-0-config}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{partes/ImgJoao/real-3-parallelB-1-frames.png}
+    \includegraphics[scale=0.25]{partes/img/real-3-parallelB-1-frames.png}
     \caption[Capturas de la grabación del vuelo en entorno real con obstáculos paralelos a 4 metros de separación.]{Capturas de la grabación del vuelo en entorno real con obstáculos paralelos a 4 metros de separación. \textbf{(a)} La ejecución comienza y el QUAV navega hacia el espacio entre los dos obstáculos. \textbf{(b)} El obstáculo izquierdo sale del campo de visión, y el QUAV continúa hacia el espacio entre los dos obstáculos. \textbf{(c)}  Se superan los obstáculos y se navega en dirección a la meta.}
     \label{real-3-parallelB-1-frames}
 \end{figure}
@@ -390,14 +390,14 @@ El tercer y ultimo vuelo en la configuración de obstáculos paralelos utilizó 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.27]{partes/ImgJoao/real-4-parallelC-0-config.png}
+    \includegraphics[scale=0.27]{partes/img/real-4-parallelC-0-config.png}
     \caption[Configuración de obstáculos en entorno real: Obstáculos paralelos a 1 metro de separación.]{Configuración de obstáculos en entorno real: Obstáculos paralelos a 1 metro de separación.}
     \label{real-4-parallelC-0-config}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{partes/ImgJoao/real-4-parallelC-1-frames.png}
+    \includegraphics[scale=0.25]{partes/img/real-4-parallelC-1-frames.png}
     \caption[Capturas de la grabación del vuelo en entorno real con obstáculos paralelos a 1 metro de separación.]{Capturas de la grabación del vuelo en entorno real con obstáculos paralelos a 1 metro de separación. \textbf{(a)} La ejecución comienza y el QUAV navega hacia el espacio entre los dos obstáculos. \textbf{(b)} El obstáculo izquierdo se vuelve el obstáculo mas grande en el campo de visión y el algoritmo intenta fuertemente corregir la trayectoria para esquivar el conjunto de obstáculos por el flanco izquierdo del obstáculo izquierdo. \textbf{(c)} Como la decisión de de corregir la trayectoria hacia la izquierda ocurre de forma temprana, el algoritmo tiene tiempo de completar la trayectoria sin producir colisiones, resultando en una ejecución exitosa. }
     \label{real-4-parallelC-1-frames}
 \end{figure}

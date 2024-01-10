@@ -16,7 +16,7 @@ El vehículo sobre el cual se implementara la solución propuesta en el presente
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.15]{partes/ImgJoao/SOTEN.jpg}
+    \includegraphics[scale=0.15]{partes/img/SOTEN.jpg}
     \caption[SOTEN, un QUAV diseñado por ACSL que sirve de plataforma física para la implementación de este trabajo.]{SOTEN, un QUAV diseñado por ACSL que sirve de plataforma física para la implementación de este trabajo.}
     \label{fig:SOTEN}
 \end{figure}
@@ -43,7 +43,7 @@ Tal como se menciono en la sección anterior, la solución propuesta por este tr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{partes/ImgJoao/Solution-V3-Spanish.jpg}
+    \includegraphics[scale=0.5]{partes/img/Solution-V3-Spanish.jpg}
     \caption[Diagrama de comunicación de la solución.]{Diagrama de comunicación de la solución. En alto nivel, el flujo de información comienza cuando se produce un nuevo par de imágenes estéreo; el puente de profundidad procesa el par para producir un mapa de profundidad; luego el proceso de inferencia recibe el mensaje \texttt{NEW\_DEPTH\_IMAGE}, obtiene la información mas reciente del puente FCU, invoca a la red neuronal y envía el resultado en el mensaje \texttt{NEW\_TRAJ}. Finalmente, el ejecutor de trayectorias, al recibir el mensaje \texttt{NEW\_TRAJ}, proyecta la trayectoria de acuerdo al procedimiento descrito en la sección \ref{sec:prev-aoa-traj} y procede a ejecutar la trayectoria utilizando el \textit{ACSL Flight API}.}
     \label{fig:sol-comm}
 \end{figure}
@@ -218,7 +218,7 @@ Ahora que el concepto de ejecución guiada por maquina de estado esta claro, sol
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.54]{partes/ImgJoao/State Machine.jpg}
+    \includegraphics[scale=0.54]{partes/img/State Machine.jpg}
     \caption[Visualización de la maquina de estados que guía la ejecución del hilo principal del ejecutor de trayectorias.]{Visualización de la maquina de estados que guía la ejecución del hilo principal del ejecutor de trayectorias. Los nodos del grafo dirigido representan los estados, sus lados las transiciones y el texto asociado a cada lado representa el predicado de transición.}
     \label{fig:state-machine}
 \end{figure}

@@ -21,19 +21,19 @@ Por otro lado, en \cite{Zhang2019} se introduce P-CAL (Canales Alternativos Pre-
     \centering
     \begin{subfigure}[b]{0.7\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{partes/ImgJoao/P-CAL-map.png}
+        \includegraphics[width=\textwidth]{partes/img/P-CAL-map.png}
         \caption{Nube de puntos del entorno.}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.7\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{partes/ImgJoao/P-CAL-lanes.png}
+        \includegraphics[width=\textwidth]{partes/img/P-CAL-lanes.png}
         \caption{Canales y caminos de transición.}
     \end{subfigure}
     \break
     \begin{subfigure}[b]{0.5\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{partes/ImgJoao/P-CAL-results.png}
+        \includegraphics[width=\textwidth]{partes/img/P-CAL-results.png}
         \caption{Camino resultante.}
     \end{subfigure}
     \hfill
@@ -59,7 +59,7 @@ Utilizando \jim{D_{eff}}, se calcula una mascara binaria de obstáculos \jim{D_{
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{partes/ImgJoao/P-CNN.png}
+    \includegraphics[scale=0.4]{partes/img/P-CNN.png}
     \caption[Mecanismo de evasión de obstáculos por CNN probabilística.]{Mecanismo\footnotemark de evasión de obstáculos por CNN probabilística \cite{Yang2021}. \textbf{(a)} Imagen RBG. \textbf{(b)} Mapa de profundidad. \textbf{(c)} Mapa de confianza. \textbf{(d)} Mascara de obstáculos y dirección de navegación seleccionada (cruz roja).} 
     \label{fig:P-CNN}
 \end{figure}
@@ -73,7 +73,7 @@ El proceso de entrenamiento de estos métodos es considerablemente complicado, r
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{partes/ImgJoao/RL-training-process.png}
+    \includegraphics[scale=0.4]{partes/img/RL-training-process.png}
     \caption[Diagrama de flujo del proceso de entrenamiento utilizado en \textit{Vision Based Drone Obstacle Avoidance by Deep Reinforcement Learning}]{Diagrama de flujo del proceso de entrenamiento utilizado en \cite{Xue2021}.}
     \label{fig:prev-rl-training-process}
 \end{figure}
@@ -88,7 +88,7 @@ Tal como se menciono anteriormente, \textit{Learning high-speed flight in the wi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{partes/ImgJoao/agile-autonomy-overview.png}
+    \includegraphics[scale=0.3]{partes/img/agile-autonomy-overview.png}
     \caption[Visión general del método propuesto en \textit{Learning high-speed flight in the wild}]{Visión general del método propuesto en \textit{Learning high-speed flight in the wild} \cite{Loquercio2021}. \textbf{(A)} El experto privilegiado genera una distribución de trayectorias libre de colisión que siguen una trayectoria de referencia. Las trayectorias generadas están condicionadas por la completa información de obstáculos del entorno. \textbf{(B)} La política estudiante es entrenada mediante entrenamiento supervisado para predecir las mejores tres trayectorias a partir un mapa de profundidad, mediciones inerciales del dron y una dirección objetivo. \textbf{(C)} Durante la ejecución, las predicciones de la política estudiante son proyectadas en el espacio de las trayectorias polinomiales y finalmente la trayectoria con el costo de predicción mas bajo es ejecutada por el modelo de control. }
     \label{fig:prev-agile-autonomy-overview}
 \end{figure}
@@ -130,7 +130,7 @@ El experto luego se utiliza para generar una base de trayectorias libres de coli
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.2]{partes/ImgJoao/aoa-expert-sample.png}
+    \includegraphics[scale=0.2]{partes/img/aoa-expert-sample.png}
     \caption[Visualización de las muestras de \jim{P} generadas por el experto durante un paso de la simulación.]{Visualización de las muestras de \jim{P} generadas por el experto durante un paso de la simulación. Los puntos verdes representan \jim{\tau_{ref}}.}
     \label{fig:prev-aoa-expert-sample}
 \end{figure}
