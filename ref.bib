@@ -1,0 +1,392 @@
+@article{Hirschmüller2007,
+   abstract = {This paper describes the Semi-Global Matching (SGM) stereo method. It uses a pixelwise, Mutual Information based matching cost for compensating radiometric differences of input images. Pixelwise matching is supported by a smoothness constraint that is usually expressed as a global cost function. SGM performs a fast approximation by pathwise optimizations from all directions. The discussion also addresses occlusion detection, sub-pixel refinement and multi-baseline matching. Additionally, post-processing steps for removing outliers, recovering from specific problems of structured environments and the interpolation of gaps are presented. Finally, strategies for processing almost arbitrarily large images and fusion of disparity images using orthographic projection are proposed. A comparison on standard stereo images shows that SGM is among the currently top-ranked algorithms and is best, if sub-pixel accuracy is considered. The complexity is linear to the number of pixels and disparity range, which results in a runtime of just 1-2s on typical test images. An in depth evaluation of the Mutual Information based matching cost demonstrates a tolerance against a wide range of radiometric transformations. Finally, examples of reconstructions from huge aerial frame and pushbroom images demonstrate that the presented ideas are working well on practical problems.},
+   author = {Heiko Hirschmüller},
+   issue = {2},
+   journal = {IEEE Transactions on pattern analysis and machine intelligence},
+   keywords = {Index Terms-stereo,global optimization,multi-baseline,mutual information},
+   pages = {328-341},
+   title = {Stereo Processing by Semi-Global Matching and Mutual Information},
+   volume = {30},
+   url = {www.middlebury.edu/stereo},
+   year = {2007},
+}
+@inproceedings{Howard2019,
+   abstract = {We present the next generation of MobileNets based on a combination of complementary search techniques as well as a novel architecture design. MobileNetV3 is tuned to mobile phone CPUs through a combination of hardware-aware network architecture search (NAS) complemented by the NetAdapt algorithm and then subsequently improved through novel architecture advances. This paper starts the exploration of how automated search algorithms and network design can work together to harness complementary approaches improving the overall state of the art. Through this process we create two new MobileNet models for release: MobileNetV3-Large and MobileNetV3-Small which are targeted for high and low resource use cases. These models are then adapted and applied to the tasks of object detection and semantic segmentation. For the task of semantic segmentation (or any dense pixel prediction), we propose a new efficient segmentation decoder Lite Reduced Atrous Spatial Pyramid Pooling (LR-ASPP). We achieve new state of the art results for mobile classification, detection and segmentation. MobileNetV3-Large is 3.2\% more accurate on ImageNet classification while reducing latency by 15\% compared to MobileNetV2. MobileNetV3-Small is 4.6\% more accurate while reducing latency by 5\% compared to MobileNetV2. MobileNetV3-Large detection is 25\% faster at roughly the same accuracy as MobileNetV2 on COCO detection. MobileNetV3-Large LR-ASPP is 30\% faster than MobileNetV2 R-ASPP at similar accuracy for Cityscapes segmentation.},
+   author = {Andrew Howard and Mark Sandler and Grace Chu and Liang-Chieh Chen and Bo Chen and Mingxing Tan and Weijun Wang and Yukun Zhu and Ruoming Pang and Vijay Vasudevan and Quoc V. Le and Hartwig Adam},
+   journal = {IEEE/CVF International Conference on Computer Vision (ICCV)},
+   month = {5},
+   pages = {1314-1324},
+   title = {Searching for MobileNetV3},
+   url = {http://arxiv.org/abs/1905.02244},
+   year = {2019},
+}
+@inproceedings{Sturm2012,
+   abstract = {In this paper, we present a novel benchmark for the evaluation of RGB-D SLAM systems. We recorded a large set of image sequences from a Microsoft Kinect with highly accurate and time-synchronized ground truth camera poses from a motion capture system. The sequences contain both the color and depth images in full sensor resolution (640 × 480) at video frame rate (30 Hz). The ground-truth trajectory was obtained from a motion-capture system with eight high-speed tracking cameras (100 Hz). The dataset consists of 39 sequences that were recorded in an office environment and an industrial hall. The dataset covers a large variety of scenes and camera motions. We provide sequences for debugging with slow motions as well as longer trajectories with and without loop closures. Most sequences were recorded from a handheld Kinect with unconstrained 6-DOF motions but we also provide sequences from a Kinect mounted on a Pioneer 3 robot that was manually navigated through a cluttered indoor environment. To stimulate the comparison of different approaches, we provide automatic evaluation tools both for the evaluation of drift of visual odometry systems and the global pose error of SLAM systems. The benchmark website [1] contains all data, detailed descriptions of the scenes, specifications of the data formats, sample code, and evaluation tools. © 2012 IEEE.},
+   author = {Jrgen Sturm and Nikolas Engelhard and Felix Endres and Wolfram Burgard and Daniel Cremers},
+   doi = {10.1109/IROS.2012.6385773},
+   isbn = {9781467317375},
+   issn = {21530858},
+   journal = {IEEE International Conference on Intelligent Robots and Systems},
+   pages = {573-580},
+   title = {A benchmark for the evaluation of RGB-D SLAM systems},
+   year = {2012},
+}
+@article{Geiger2013,
+   abstract = {We present a novel dataset captured from a VW station wagon for use in mobile robotics and autonomous driving research. In total, we recorded 6 hours of traffic scenarios at 10-100 Hz using a variety of sensor modalities such as high-resolution color and grayscale stereo cameras, a Velodyne 3D laser scanner and a high-precision GPS/IMU inertial navigation system. The scenarios are diverse, capturing real-world traffic situations and range from freeways over rural areas to inner-city scenes with many static and dynamic objects. Our data is calibrated, synchronized and timestamped, and we provide the rectified and raw image sequences. Our dataset also contains object labels in the form of 3D tracklets and we provide online benchmarks for stereo, optical flow, object detection and other tasks. This paper describes our recording platform, the data format and the utilities that we provide.},
+   author = {Andreas Geiger and Philip Lenz and Christoph Stiller and Raquel Urtasun},
+   issue = {11},
+   journal = {The International Journal of Robotics Research},
+   keywords = {GPS,Index Terms-dataset,KITTI,SLAM,autonomous driving,benchmarks,cameras,computer vision,field robotics,laser,mobile robotics,object detection,optical flow,stereo,tracking},
+   pages = {1231-1237},
+   title = {Vision meets Robotics: The KITTI Dataset},
+   volume = {32},
+   url = {http://www.cvlibs.net/datasets/kitti.},
+   year = {2013},
+}
+@inproceedings{Nhair2020,
+   abstract = {This paper proposes an obstacle avoidance technique for small size drones by using a monocular camera. This method can assist the drone for doing their mission and avoid hitting any obstacle or minimise the collision as possible. For avoiding an obstacle while the drone is doing its mission, We use a computer vision technique to determines the free zone along with the obstacle that may cause a crash and send feedback control to the drone. The small size drone receives feedback about the obstacle and commands the drone to moves to a safe area then resume its trajectory.},
+   author = {Retaj Raheem Nhair and Tawfiq A. Al-Assadi},
+   doi = {10.1088/1757-899X/928/3/032048},
+   issn = {1757899X},
+   issue = {3},
+   journal = {IOP Conference Series: Materials Science and Engineering},
+   keywords = {computer vision,monocular camera,obstacle avoidance,trajectory follows},
+   month = {11},
+   publisher = {IOP Publishing Ltd},
+   title = {Vision-Based Obstacle Avoidance for Small Drone using Monocular Camera},
+   volume = {928},
+   year = {2020},
+}
+@article{Loquercio2021,
+   abstract = {Quadrotors are agile. Unlike most other machines, they can traverse extremely complex environments at high speeds. To date, only expert human pilots have been able to fully exploit their capabilities. Autonomous operation with onboard sensing and computation has been limited to low speeds. State-of-the-art methods generally separate the navigation problem into subtasks: sensing, mapping, and planning. Although this approach has proven successful at low speeds, the separation it builds upon can be problematic for high-speed navigation in cluttered environments. The subtasks are executed sequentially, leading to increased processing latency and a compounding of errors through the pipeline. Here, we propose an end-to-end approach that can autonomously fly quadrotors through complex natural and human-made environments at high speeds with purely onboard sensing and computation. The key principle is to directly map noisy sensory observations to collision-free trajectories in a receding-horizon fashion. This direct mapping drastically reduces processing latency and increases robustness to noisy and incomplete perception. The sensorimotor mapping is performed by a convolutional network that is trained exclusively in simulation via privileged learning: imitating an expert with access to privileged information. By simulating realistic sensor noise, our approach achieves zero-shot transfer from simulation to challenging real-world environments that were never experienced during training: dense forests, snow-covered terrain, derailed trains, and collapsed buildings. Our work demonstrates that end-to-end policies trained in simulation enable high-speed autonomous flight through challenging environments, outperforming traditional obstacle avoidance pipelines.},
+   author = {Antonio Loquercio and Elia Kaufmann and René Ranftl and Matthias Müller and Vladlen Koltun and Davide Scaramuzza},
+   doi = {10.1126/scirobotics.abg5810},
+   issn = {24709476},
+   issue = {59},
+   journal = {Science Robotics},
+   month = {10},
+   pmid = {34613820},
+   publisher = {American Association for the Advancement of Science},
+   title = {Learning high-speed flight in the wild},
+   volume = {6},
+   year = {2021},
+}
+@inproceedings{Zhang2019,
+   abstract = {We here address the issue of air vehicles flying autonomously at a high speed in complex environments. Typically, autonomous navigation through a complex environment requires a continuous heuristic search on a graph generated by a k-connected grid or a probabilistic scheme. The process is expensive especially if the paths must be kino-dynamically feasible. Aimed at tackling the problem from a different angle, we consider the case that the environment is mostly known from a prior map. The proposed method suggests the computation needed to find safe paths during fast flight can be greatly reduced if we pre-compute and carefully arrange a set of alternative paths before the flight. During the navigation, the vehicle selects a pre-computed path to navigate without the need to generate a new path. The result is that majority of the processing is migrated to offline path generation. Effectively, the onboard computation is significantly reduced, taking < 3% of a CPU thread on a modern embedded computer. In experiments, it enables a lightweight aerial vehicle to maneuver aggressively through a cluttered forest environment at 10m/s.},
+   author = {Ji Zhang and Vivek Velivela and Sanjiv Singh and Gupta Chadha},
+   city = {Tokyo, Japan},
+   journal = {12th Conference on Field and Service Robotics},
+   title = {P-CAL: Pre-computed Alternative Lanes for Aggressive Aerial Collision Avoidance},
+   url = {https://www.researchgate.net/publication/335401931},
+   year = {2019},
+}
+@article{Xue2021,
+   abstract = {Research on autonomous obstacle avoidance of drones has recently received widespread attention from researchers. Among them, an increasing number of researchers are using machine learning to train drones. These studies typically adopt supervised learning or reinforcement learning to train the networks. Supervised learning has a disadvantage in that it takes a significant amount of time to build the datasets, because it is difficult to cover the complex and changeable drone flight environment in a single dataset. Reinforcement learning can overcome this problem by using drones to learn data in the environment. However, the current research results based on reinforcement learning are mainly focused on discrete action spaces. In this way, the movement of drones lacks precision and has somewhat unnatural flying behavior. This study aims to use the soft-actor-critic algorithm to train a drone to perform autonomous obstacle avoidance in continuous action space using only the image data. The algorithm is trained and tested in a simulation environment built by Airsim. The results show that our algorithm enables the UAV to avoid obstacles in the training environment only by inputting the depth map. Moreover, it also has a higher obstacle avoidance rate in the reconfigured environment without retraining.},
+   author = {Zhihan Xue and Tad Gonsalves},
+   doi = {10.3390/ai2030023},
+   issn = {26732688},
+   issue = {3},
+   journal = {AI (Switzerland)},
+   keywords = {Airsim,SAC,VAE,deep reinforcement learning,drone},
+   month = {9},
+   pages = {366-380},
+   publisher = {Multidisciplinary Digital Publishing Institute (MDPI)},
+   title = {Vision Based Drone Obstacle Avoidance by Deep Reinforcement Learning},
+   volume = {2},
+   year = {2021},
+}
+@article{Yang2021,
+   abstract = {Recent studies employ advanced deep convolutional neural networks (CNNs) for monocular depth perception, which can hardly run efficiently on small drones that rely on low/middle-grade GPU(e.g. TX2 and 1050Ti) for computation. In addition, the methods which can effectively and efficiently produce probabilistic depth prediction with a measure of model confidence have not been well studied. The lack of such a method could yield erroneous, sometimes fatal, decisions in drone applications (e.g. selecting a waypoint in a region with a large depth yet a low estimation confidence). This paper presents a real-time onboard approach for monocular depth prediction and obstacle avoidance with a lightweight probabilistic CNN (pCNN), which will be ideal for use in a lightweight energy-efficient drone. For each video frame, our pCNN can efficiently predict its depth map and the corresponding confidence. The accuracy of our lightweight pCNN is greatly boosted by integrating sparse depth estimation from a visual odometry into the network for guiding dense depth and confidence inference. The estimated depth map is transformed into Ego Dynamic Space (EDS) by embedding both dynamic motion constraints of a drone and the confidence values into the spatial depth map. Traversable waypoints are automatically computed in EDS based on which appropriate control inputs for the drone are produced. Extensive experimental results on public datasets demonstrate that our depth prediction method runs at 12Hz and 45Hz on TX2 and 1050Ti GPU respectively, which is 1.8X5.6X faster than the state-of-the-art methods and achieves better depth estimation accuracy. We also conducted experiments of obstacle avoidance in both simulated and real environments to demonstrate the superiority of our method to the baseline methods.},
+   author = {Xin Yang and Jingyu Chen and Yuanjie Dang and Hongcheng Luo and Yuesheng Tang and Chunyuan Liao and Peng Chen and Kwang Ting Cheng},
+   doi = {10.1109/TITS.2019.2955598},
+   issn = {15580016},
+   issue = {1},
+   journal = {IEEE Transactions on Intelligent Transportation Systems},
+   keywords = {Depth prediction,adversarial learning,convolutional neural network,drone platform,obstacle avoidance},
+   month = {1},
+   pages = {156-167},
+   publisher = {Institute of Electrical and Electronics Engineers Inc.},
+   title = {Fast Depth Prediction and Obstacle Avoidance on a Monocular Drone Using Probabilistic Convolutional Neural Network},
+   volume = {22},
+   year = {2021},
+}
+@article{Shin2019,
+   abstract = {Drones with obstacle avoidance capabilities have attracted much attention from researchers recently. They typically adopt either supervised learning or reinforcement learning (RL) for training their networks. The drawback of supervised learning is that labeling of the massive dataset is laborious and time-consuming, whereas RL aims to overcome such a problem by letting an agent learn with the data from its environment. The present study aims to utilize diverse RL within two categories: (1) discrete action space and (2) continuous action space. The former has the advantage in optimization for vision datasets, but such actions can lead to unnatural behavior. For the latter, we propose a U-net based segmentation model with an actor-critic network. Performance is compared between these RL algorithms with three different environments such as the woodland, block world, and the arena world, as well as racing with human pilots. Results suggest that our best continuous algorithm easily outperformed the discrete ones and yet was similar to an expert pilot.},
+   author = {Sang Yun Shin and Yong Won Kang and Yong Guk Kim},
+   doi = {10.3390/app9245571},
+   issn = {20763417},
+   issue = {24},
+   journal = {Applied Sciences (Switzerland)},
+   keywords = {Actor-critic network,Airsim,Deep Q-learning,Drone,Racing between human and algorithm,U-net},
+   month = {12},
+   publisher = {MDPI AG},
+   title = {Obstacle avoidance drone by deep reinforcement learning and its racing with human pilot},
+   volume = {9},
+   year = {2019},
+}
+@article{Tu2023,
+   abstract = {This study proposes using unmanned aerial vehicles (UAVs) to carry out tasks involving path planning and obstacle avoidance, and to explore how to improve work efficiency and ensure the flight safety of drones. One of the applications under consideration is aquaculture cage detection; the net-cages used in sea-farming are usually numerous and are scattered widely over the sea. It is necessary to save energy consumption so that the drones can complete all cage detections and return to their base on land. In recent years, the application of reinforcement learning has become more and more extensive. In this study, the proposed method is mainly based on the Q-learning algorithm to enable improvements to path planning, and we compare it with a well-known reinforcement learning state–action–reward–state–action (SARSA) algorithm. For the obstacle avoidance control procedure, the same reinforcement learning method is used for training in the AirSim virtual environment; the parameters are changed, and the training results are compared.},
+   author = {Guan Ting Tu and Jih Gau Juang},
+   doi = {10.3390/act12020057},
+   issn = {20760825},
+   issue = {2},
+   journal = {Actuators},
+   keywords = {Q-learning,UAV,deep Q-learning,obstacle avoidance,path planning,reinforcement learning,unmanned aerial vehicles},
+   month = {2},
+   publisher = {MDPI},
+   title = {UAV Path Planning and Obstacle Avoidance Based on Reinforcement Learning in 3D Environments},
+   volume = {12},
+   year = {2023},
+}
+
+@article{sterovis,
+   abstract = {An algorithm is proposed for solving the stereoscopic matching problem. The algorithm consists of five steps: (1) Each image is filtered at different orientations with bar masks of four sizes that increase with eccentricity; the equivalent filters are one or two octaves wide. (2) Zero-crossings in the filtered images, which roughly correspond to edges, are localized. Positions of the ends of lines and edges are also found. (3) For each mask orientation and size, matching takes place between pairs of zero-crossings or terminations of the same sign in the two images, for a range of disparities up to about the width of the mask's central region. (4) Wide masks can control vergence movements, thus causing small masks to come into correspondence. (5) When a correspondence is achieved, it is stored in a dynamic buffer, called the 2|-D sketch. I t is shown that this proposal provides a theoretical framework for most existing psychophysical and neurophysiological data about stereopsis. Several critical experimental predictions are also made, for instance about the size of Panum's area under various conditions. The results of such experiments would tell us whether, for example, co-operativity is necessary for the matching process. Computational structure of the stereo-disparity problem},
+   author = {Poggio T Marr D},
+   journal = {Proc. R. Soc. Lond. B},
+   pages = {301-328},
+   title = {A computational theory of human stereo vision},
+   volume = {204},
+   year = {1979},
+}
+@misc{Baudes2009,
+   author = {A Baudes and Coll B and Morel and J.M. and Rouge B},
+   institution = {UIB},
+   publisher = {Spanish Patent},
+   title = {Procedimiento de establecimiento de correspondencia entre una primera imagen digital y una segunda imagen digital de una misma escena para la obtencion de disparidades},
+   year = {2009},
+}
+
+@article{Alberto2010,
+   abstract = {Advanced Driver Assistance Systems (ADAS) can improve road safety by supporting the driver through warnings in hazardous circumstances or triggering appropriate actions when facing imminent collision situations (e.g. airbags, emergency brake systems, etc). In this context, the knowledge of the location and the speed of the surrounding mobile objects constitute a key information. Consequently, in this work, we focus on object detection, localization and tracking in dynamic scenes. Noticing the increasing presence of embedded multi-camera systems on vehicles and recognizing the effectiveness of lidar automotive systems to detect obstacles, we investigate stereo vision systems contributions to multi-modal perception of the environment geometry. In order to fuse geometrical information between lidar and vision system, we propose a calibration process which determines the extrinsic parameters between the exteroceptive sensors and quantifies the uncertainties of this estimation. We present a real-time visual odometry method which estimates the vehicle ego-motion and simplifies dynamic object motion analysis. Then, the integrity of the lidar-based object detection and tracking is increased by the means of a visual confirmation method that exploits stereo-vision 3D dense reconstruction in focused areas. Finally, a complete full scale automotive system integrating the considered perception modalities was implemented and tested experimentally in open road situations with an experimental car.},
+   author = {Sergio Alberto and Rodriguez Florez},
+   city = {Paris},
+   institution = {Université Paris-Saclay},
+   title = {Contributions by Vision Systems to Multi-sensor Object Localization and Tracking for Intelligent Vehicles},
+   url = {https://www.researchgate.net/publication/265126161},
+   year = {2010},
+}
+
+@book{Gurney1997,
+   abstract = {Though mathematical ideas underpin the study of neural networks, the author presents the fundamentals without the full mathematical apparatus. All aspects of the field are tackled, including artificial neurons as models of their real counterparts; the geometry of network action in pattern space; gradient descent methods, including back-propagation; associative memory and Hopfield nets; and self-organization and feature maps. The traditionally difficult topic of adaptive resonance theory is clarified within a hierarchical description of its operation. The book also includes several real-world examples to provide a concrete focus. This should enhance its appeal to those involved in the design, construction and management of networks in commercial environments and who wish to improve their understanding of network simulator packages. As a comprehensive and highly accessible introduction to one of the most important topics in cognitive and computer science, this volume should interest a wide range of readers, both students and professionals, in cognitive science, psychology, computer science and electrical engineering.},
+   author = {Kevin Gurney},
+   city = {London},
+   pages = {1-234},
+   publisher = {CRC Press},
+   title = {An Introduction to Neural Networks},
+   year = {1997},
+}
+
+@book{huang2019deep,
+  title={Deep learning: fundamentals, theory and applications},
+  author={Huang, Kaizhu and Hussain, Amir and Wang, Qiu-Feng and Zhang, Rui},
+  volume={2},
+  year={2019},
+  publisher={Springer}
+}
+
+@inproceedings{Lecun2010,
+   abstract = {Intelligent tasks, such as visual perception, auditory perception, and language understanding require the construction of good internal representations of the world (or "features"), which must be invariant to irrelevant variations of the input while, preserving relevant information. A major question for Machine Learning is how to learn such good features automatically. Convolutional Networks (ConvNets) are a biologically-inspired trainable architecture that can learn invariant features. Each stage in a ConvNets is composed of a filter bank, some non-linearities, and feature pooling layers. With multiple stages, a ConvNet can learn multi-level hierarchies of features. While ConvNets have been successfully deployed in many commercial applications from OCR to video surveillance, they require large amounts of labeled training samples. We describe new unsu-pervised learning algorithms, and new non-linear stages that allow ConvNets to be trained with very few labeled samples. Applications to visual object recognition and vision navigation for off-road mobile robots are described.},
+   author = {Yann Lecun and Koray Kavukcuoglu and Clément Farabet},
+   journal = {Proceedings of 2010 IEEE international symposium on circuits and systems},
+   pages = {253-256},
+   title = {Convolutional Networks and Applications in Vision},
+   url = {http://www.cs.nyu.edu/},
+   year = {2010},
+}
+
+@misc{Gupta2013,
+   abstract = {This paperdescribes the various image filtering algorithms and techniques used for image filtering/smoothing. Image smoothing is one of the most important and widely used operation in image processing .We have explained various algorithms and techniques for filter the images and which algorithm is the be the best for smoothing and filtering the images, especially we have mainly concentrate on non-linear filtering algorithms i.e. median filtering is very important in edge preserving. The image may be corrupted by random variations in intensity, variations in illumination or poor contrast that may be dealt with in early stages of vision processing.},
+   author = {Gaurav Gupta and Ruchika Chandel},
+   issue = {10},
+   journal = {International Journal of Advanced Research in Computer Science and Software Engineering},
+   keywords = {Gaussian blur,Han filter,image histogram,median filter,morphological operations,spatial filter,temporal filter},
+   pages = {2277},
+   title = {Image Filtering Algorithms and Techniques: A Review},
+   volume = {3},
+   url = {https://www.researchgate.net/publication/325681876},
+   year = {2013},
+}
+
+@inproceedings{Coady2019,
+  author={Coady, James and O'Riordan, Andrew and Dooly, Gerard and Newe, Thomas and Toal, Daniel},
+  booktitle={2019 13th International Conference on Sensing Technology (ICST)}, 
+  title={An Overview of Popular Digital Image Processing Filtering Operations}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={1-5},
+  abstract={Digital image processing (DIP) is carried out to produce an altered image that is more suitable for the intended application. Image filtering and image warping are considered to be the most common methods of image processing. Within image filtering, these operations are carried out to aid the altering or enhancing an image to either remove specific features or highlight features of interest within the image. These operations are generally carried out in the pre-processing stage and can have very positive results on the quality of feature extraction and the results of image analysis. This paper aims to give a brief overview of some popular image filtering operations, focusing on edge detection filters, smoothing filters and the advantages of greyscale over colour images.},
+  keywords={},
+  doi={10.1109/ICST46873.2019.9047683},
+  ISSN={2156-8073},
+  month={Dec},
+}
+
+@article{IPCEval2015,
+  title={Evaluation of inter-process communication mechanisms},
+  author={Venkataraman, Aditya and Jagadeesha, Kishore Kumar},
+  journal={Architecture},
+  volume={86},
+  pages={64},
+  year={2015}
+}
+
+@article{zeroMQ,
+  title={ZeroMQ},
+  author={S{\'u}strik, Martin and others},
+  journal={Introduction Amy Brown and Greg Wilson},
+  pages={16},
+  year={2015}
+}
+
+@article{multidrone2017review,
+  title={Multi-rotor drone tutorial: systems, mechanics, control and state estimation},
+  author={Yang, Hyunsoo and Lee, Yongseok and Jeon, Sang-Yun and Lee, Dongjun},
+  journal={Intelligent Service Robotics},
+  volume={10},
+  pages={79--93},
+  year={2017},
+  publisher={Springer}
+}
+
+@article{multidrone2015modeling,
+  title={Modeling and Control of a Quadrotor Aircraft UAV},
+  author={Shirsat, A},
+  journal={Ph. D. Thesis},
+  year={2015},
+  publisher={Arizona State University Tempe, AZ, USA}
+}
+
+@inproceedings{wang2016dynamics,
+  title={Dynamics modelling and linear control of quadcopter},
+  author={Wang, Pengcheng and Man, Zhihong and Cao, Zhenwei and Zheng, Jinchuan and Zhao, Yong},
+  booktitle={2016 International Conference on Advanced Mechatronic Systems (ICAMechS)},
+  pages={498--503},
+  year={2016},
+  organization={IEEE}
+}
+
+@article{eulerAngles,
+  title={Representing attitude: Euler angles, unit quaternions, and rotation vectors},
+  author={Diebel, James and others},
+  journal={Matrix},
+  volume={58},
+  number={15-16},
+  pages={1--35},
+  year={2006}
+}
+
+@article{2002convertGPS,
+  title={Converting GPS coordinates [phi, lambda, h] to navigation coordinates (ENU)},
+  author={Drake, Samuel Picton},
+  year={2002}
+}
+
+@article{cai2011coordinate,
+  title={Coordinate systems and transformations},
+  author={Cai, Guowei and Chen, Ben M and Lee, Tong Heng and Cai, Guowei and Chen, Ben M and Lee, Tong Heng},
+  journal={Unmanned rotorcraft systems},
+  pages={23--34},
+  year={2011},
+  publisher={Springer}
+}
+
+@mastersthesis{vis2018history,
+  title={History of the Mercator projection},
+  author={Vis, MJP},
+  type={{B.S.} thesis},
+  year={2018}
+}
+
+@inproceedings{shi2018collision,
+  title={A collision-free path planning algorithm for unmanned aerial vehicle delivery},
+  author={Shi, Ziji and Ng, Wee Keong},
+  booktitle={2018 International Conference on Unmanned Aircraft Systems (ICUAS)},
+  pages={358--362},
+  year={2018},
+  organization={IEEE}
+}
+
+@inproceedings{lifen2016path,
+  title={Path planning for UAVS based on improved artificial potential field method through changing the repulsive potential function},
+  author={Lifen, Liu and Ruoxin, Shi and Shuandao, Li and Jiang, Wu},
+  booktitle={2016 IEEE Chinese Guidance, Navigation and Control Conference (CGNCC)},
+  pages={2011--2015},
+  year={2016},
+  organization={IEEE}
+}
+
+@article{park2020boundary,
+  title={Boundary-RRT* algorithm for drone collision avoidance and interleaved path re-planning},
+  author={Park, Je-Kwan and Chung, Tai-Myoung},
+  journal={Journal of Information Processing Systems},
+  volume={16},
+  number={6},
+  pages={1324--1342},
+  year={2020}
+}
+
+@article{bermudez2004aplicacion,
+  title={Aplicaci{\'o}n del m{\'e}todo de campos de potencial artificial para un robot m{\'o}vil aut{\'o}nomo},
+  author={Bermudez, Giovanni and Castellar, Luis Alejandro Rojas and Montiel, Holman and Ceballos, Marco and others},
+  journal={Tecnura},
+  volume={7},
+  number={14},
+  pages={86--96},
+  year={2004}
+}
+
+@inproceedings{shah2018airsim,
+  title={Airsim: High-fidelity visual and physical simulation for autonomous vehicles},
+  author={Shah, Shital and Dey, Debadeepta and Lovett, Chris and Kapoor, Ashish},
+  booktitle={Field and Service Robotics: Results of the 11th International Conference},
+  pages={621--635},
+  year={2018},
+  organization={Springer}
+}
+
+@article{hastings1970monte,
+  title={Monte Carlo sampling methods using Markov chains and their applications},
+  author={Hastings, W Keith},
+  year={1970},
+  publisher={Oxford University Press}
+}
+
+@inproceedings{mellinger2011minimum,
+  title={Minimum snap trajectory generation and control for quadrotors},
+  author={Mellinger, Daniel and Kumar, Vijay},
+  booktitle={2011 IEEE international conference on robotics and automation},
+  pages={2520--2525},
+  year={2011},
+  organization={IEEE}
+}
+
+@article{liu2018search,
+  title={Search-based motion planning for aggressive flight in se (3)},
+  author={Liu, Sikang and Mohta, Kartik and Atanasov, Nikolay and Kumar, Vijay},
+  journal={IEEE Robotics and Automation Letters},
+  volume={3},
+  number={3},
+  pages={2439--2446},
+  year={2018},
+  publisher={IEEE}
+}
+
+
+@article{bradski2000opencv,
+  title={The openCV library.},
+  author={Bradski, Gary},
+  journal={Dr. Dobb's Journal: Software Tools for the Professional Programmer},
+  volume={25},
+  number={11},
+  pages={120--123},
+  year={2000},
+  publisher={Miller Freeman Inc.}
+}
+
+@misc{onnx,
+  title = {onnx: Open standard for machine learning interoperability},
+  howpublished = {\url{https://github.com/onnx/onnx}}
+}
+
+

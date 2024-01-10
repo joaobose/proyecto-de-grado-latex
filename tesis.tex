@@ -1,0 +1,310 @@
+\documentclass[hidelinks, letterpaper, 12pt, oneside]{tesis}
+
+% Paquetes para idioma
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[fixlanguage]{babelbib}
+
+% Otros paquetes instalados
+% Básicos
+\usepackage{array}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{longtable}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{xurl}
+%Tablas
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{multirow}
+% Para dibujar figuras
+\usepackage{tikz}
+
+
+% Para cambiar el color de las letras
+\usepackage{color}
+
+% Para incluir código (básico)
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\definecolor{custom}{RGB}{245,245,245}
+\lstset{
+	language=bash,
+	basicstyle=\ttfamily,
+	frame=none,
+	backgroundcolor=\color{custom}
+}
+
+% Para agregar bibliografia
+%\usepackage{biblatex}
+%\addbibresource{ref.bib}
+\usepackage[nottoc]{tocbibind}
+
+% Para incluir hipervínculos
+\usepackage{hyperref}
+\usepackage{url}
+\hypersetup{urlcolor=blue, colorlinks=false}
+
+% Para más símbolos matemáticos
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newtheorem*{obs}{Observación}
+
+% Para colocar teoremas en cajas
+%\usepackage{mdframed}
+
+% Para manejas la ubicacion de las figuras
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{varwidth,xcolor}
+\usepackage{subcaption}
+\captionsetup[subfigure]{labelfont=rm}
+
+\usepackage{calc}
+\usepackage{enumerate}
+
+% Algoritmos y pseudoCodigos
+\usepackage{amsmath}
+\selectlanguage{spanish}
+\usepackage[ruled,vlined,linesnumbered,spanish,onelanguage]{algorithm2e} %for psuedo code
+
+\SetKw{Continue}{continuar}
+\SetKw{Break}{romper}
+
+% Footnotes
+\usepackage[bottom]{footmisc}
+
+% Paquetes locales
+% Puedes agregar paquetes locales (archivos .sty) en un subdirectorio % 'paquetes'.
+% Utiliza la sintaxis \usepackage{paquetes/nombrePaquete}
+
+% Todas las imágenes se cargan del subdirectorio 'img' por defecto.
+\graphicspath{{imagenes/}}
+
+% Sangrías de 3 espacios (3 veces el espacio de la x)
+\parindent 3ex
+
+% Interlineado
+\setlength{\baselineskip}{1.5pt}
+
+% Interpárrafo
+\setlength{\parskip}{16.5pt}
+
+\topmargin 2cm
+
+\renewcommand{\tablename}{Tabla}
+\newcommand\listsymbolname{Lista de acrónimos}
+
+% Joao Inline Math
+\newcommand{\jim}[1]{\(#1\)}
+
+\clearpage
+\newpage
+\begin{titlepage}
+    \title{\vspace{-2cm} \includegraphics[width=1.2in]{./partes/usb.png} \\[.2cm]
+        \large UNIVERSIDAD SIMÓN BOLÍVAR \\
+        \textbf{DECANATO DE ESTUDIOS PROFESIONALES \\
+        COORDINACIÓN DE INGENIERÍA DE COMPUTACIÓN}
+        \vfill \large {\textbf{IMPLEMENTACIÓN DE UN ALGORITMO DE EVITACIÓN DE OBSTÁCULOS PARA DRONES AUTÓNOMOS}}  \vfill}
+    \author{Por: \\
+        Joao Bose Pinto Diaz \\[1.2cm]
+        Realizado con la asesoría de: \\
+        Prof. Gerardo Fernandez López\\
+        \\
+        \textbf{PROYECTO DE GRADO} \\
+        Presentado ante la Ilustre Universidad Simón Bolívar \\
+        como requisito parcial para optar al título de \\
+        Ingeniero de Computación}
+    \date{Sartenejas, Diciembre de 2023}
+
+\end{titlepage}
+
+\newpage
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\setstretch{1.3}
+
+% Se incluye el acta de evaluación, verificar que se corresponda
+% con el formato aceptado actualmente por el Decanato.
+% \input{./partes/acta_ricardo}
+% \input{./partes/ActaInforme}
+
+
+%% RESUMEN
+\input{./partes/resumen}
+
+\dedicatory{
+\addtocontents{toc}{\vspace{1em}}
+\begin{flushright}
+\small
+A mis padres \\
+Luis y Griseida \\
+Que me hicieron la persona que soy. \\
+Y a mi hermana Perla Marina \\
+Siempre alegrándome con sus ocurrencias. \\
+\end{flushright}
+}
+
+% Agradecimientos
+\acknowledgements{
+\addtocontents{toc}{\vspace{1em}}
+
+A mis padres, \textbf{Griseida} y \textbf{Luis}, por su apoyo y amor incondicional, y por hacerme la persona que soy. Y a mi hermanita, \textbf{Perla Marina}, por las incontables veces que me alegró el día con sus ocurrencias.
+
+A mis padrinos, \textbf{Tony} y \textbf{Giselle}, por siempre velar por mi, por sus consejos, y por los incontables momentos felices que compartimos como familia.
+
+A \textbf{Gerardo Fernandez}, mi segundo padre, por creer en mi, por los consejos y enseñanzas, por todas la oportunidades y apoyo que me ha brindado, y sobretodo, por ser un gran amigo en el que puedo confiar.
+
+A \textbf{José Ángel}, \textbf{Juan Manuel} y \textbf{Ricardo silva}, mis hermanos de otras madres, por su amistad, por su confianza, por creer en mi, y por los incontables momentos y celebraciones.
+
+Una vez mas a \textbf{Ricardo Silva}, por ser mi compañero en Tokio, sin tu apoyo y amistad esto no hubiera sido posible.
+
+A \textbf{Gabriel Noya} y \textbf{Leonardo Cabrera}, por su excelente amistad, por su confianza, por todo el crecimiento profesional y personal en el que me han apoyado, y por su dedicación y pasión por la innovación que siempre me motiva a dar todo lo que puedo dar.
+
+A \textbf{CITE USB}, por recibirme cálidamente desde el comienzo, por ser mi hogar en la universidad, por el crecimiento profesional y las oportunidades, y por el apoyo de sus miembros, especialmente de \textbf{David Altuve} y \textbf{Andrés Suarez}, por todo lo que me enseñaron y por su excelente apoyo y amistad.
+
+A \textbf{Mariana} y \textbf{Fernando}, por ser mis amigos incondicionales desde mucho antes que todo comenzara, por los momentos inolvidables, por ser mis confidentes y por su apoyo durante los momentos mas difíciles.
+
+A \textbf{Metablader}, \textbf{Bluff}, \textbf{Leo}, \textbf{Fotiti}, \textbf{Juanma} y \textbf{Roger}, por las incontables noches de partidas en discord, y por todos los momentos que compartimos.
+
+A \textbf{Ernesto Lugo}, por ser mi compañero y amigo desde el comienzo de la universidad, por todos los momentos que compartimos, y por todos esos maratones de videojuegos y música que tanto disfruté.
+
+A \textbf{Nicola Bitteto} y \textbf{José Arguello}, por los momentos que compartimos con la musica/videojuegos, por siempre estar ahí para una conversación profunda sobre cualquier tema de interés, y sobretodo, por aquellas conversaciones que dieron apoyo en los momentos difíciles. A \textbf{Eladio}, por tu apoyo cuando no tenia nada, por los consejos y las conversaciones del futuro. Y a \textbf{Guillermo}, por compartir mi torcido sentido del humor.
+
+A los profesores \textbf{David Coronado}, \textbf{Ricardo Monascal}, \textbf{Carolina Chang}, \textbf{Marlene Goncalves}, \textbf{Guillermo Palma}, \textbf{Carolina Martinez}, \textbf{Minaya Villasana} (y muchos más) por su disposición, esfuerzo y dedicación en impartir una educación de calidad aún cuando las condiciones no son idóneas.
+
+A \textbf{Yeimi}, \textbf{Kim}, \textbf{Eduar} y \textbf{Yurima}, por prestarme su apoyo durante las etapas mas complicadas de este logro.
+
+A \textbf{dios} todopoderoso y a mis santos, por colocar esta meta en mi camino. A \textbf{Maria Francia}, \textbf{Guaramato}, \textbf{Juan Herrera}, \textbf{Cacique de las piedras}, \textbf{Antonio Aguilar M.}, \textbf{Jaime Molina} y a todos mis protectores y guías, por mantenerme en mi camino y por los favores recibidos.
+
+A mi abuelo \textbf{Victor Julio} que en paz descanse, por ser mi inspiración. Se que estarías orgulloso de este logro.
+
+}
+\clearpage
+
+\pagestyle{fancy}
+
+% Tabla de contenidos o índice
+\lhead{\emph{Índice general}}
+\tableofcontents
+
+% Estos índices solamente se usan si el libro contiene figuras, tablas y
+% algoritmos. Si alguno de estos no se utiliza, comentar o eliminar las líneas
+% pertinentes.
+\lhead{\emph{Índice de figuras}}
+\listoffigures
+
+\lhead{\emph{Índice de tablas}}
+\renewcommand*\listtablename{Índice de tablas}
+\renewcommand{\tablename}{Tabla}
+\listoftables
+
+\lhead{\emph{Índice de algoritmos}}
+\listofalgorithms
+\addcontentsline{toc}{chapter}{Índice de algoritmos}
+
+\setstretch{1.5}
+\clearpage
+\lhead{\emph{Lista de acrónimos}}
+
+\listofsymbols{}{
+    \textbf{CNN} & Redes Neuronales Convolucionales, del inglés: \textit{Convolutional Neural Networks}.\\
+
+    \textbf{ACSL} & Laboratorio de Sistemas de Control Autónomos, del inglés \textit{Autonomous Control Systems Laboratory}.\\
+
+    \textbf{UAV} & Vehículo aéreo no tripulado, del inglés \textit{unmanned aerial vehicle}.\\
+
+    \textbf{UAVs} & Plural de UAV.\\
+
+    \textbf{QUAV} & UAV de cuatro rotores, del inglés \textit{Quadrotor UAV}. \\
+
+    \textbf{QUAVs} & Plural de QUAV. \\
+
+    \textbf{IMU} & Unidad de mediciones inerciales, del inglés \textit{Inertial Measurement Unit}. \\
+
+    \textbf{GPS} & Sistema de posicionamiento global, del inglés \textit{Global Postionaing System}. \\
+
+    \textbf{CUDA} & Arquitectura Unificada de Dispositivos de Cómputo, del inglés: \textit{Compute Unified Device Architecture}.\\
+
+    \textbf{WGS64} & Modelo geodésico del mundo 64, del inglés: \textit{World Geodetic System 64}.\\
+
+    \textbf{NED} & Sistema de coordenadas Norte, Este, Abajo; del inglés \textit{North, East, Down}. \\
+
+    \textbf{BM} & Emparejamiento de Bloques, del inglés \textit{Block Matching}.\\
+
+    \textbf{ReLU} & Unidades Lineales Rectificadas, del inglés \textit{Rectified Linear Units}.\\
+
+    \textbf{FFNN}  & Red Neuronal de Alimentación hacia Adelante, del inglés \textit{Feed-forward Neural Network}.\\
+    
+    \textbf{FC} & Red Completamente Conectada, del inglés \textit{Fully Connected}. \\
+
+    \textbf{IPC}  & Comunicación entre procesos, del inglés Inter-Process Communication.  \\
+
+    \textbf{FIFO} & Proceso primero que entra, primero que sale; del inglés \textit{First In, First Out}. \\
+
+    \textbf{API} & Interfaz de programación de aplicación, del inglés \textit{Aplication Programming Interface}. \\
+    
+    \textbf{ONNX} & Estándar abierto para la interoperabilidad del aprendizaje de maquinas, del inglés \textit{Open Standard for Machine Learning Interoperability}. \\
+    
+    
+    \hline
+}
+
+
+
+%% ----------------------------------------------------------------
+% End of the pre-able, contents and lists of things
+% Begin the Dedication page
+
+\setstretch{1.3}  % Return the line spacing back to 1.3
+
+\pagestyle{empty}  % Page style needs to be empty for this page
+
+
+\addtocontents{toc}{\vspace{2em}}
+\mainmatter
+\pagestyle{fancy}
+
+% Se incluye el cuerpo de la tesis en esqte documento.
+
+% El número de capítulos varía. En mi libro fueron cuatro (sin contar
+% introducción y conclusión).
+\input{./partes/capitulo1}
+\input{./partes/capitulo2}
+\input{./partes/capitulo3}
+\input{./partes/capitulo4}
+\input{./partes/capitulo5}
+\input{./partes/capitulo6}
+\input{./partes/capitulo7}
+
+% El estilo de la bibliografía es AAAI, definido en el archivo aaai.bst.
+\label{Bibliography}
+\bibliographystyle{babunsrt}
+%\bibliographystyle{unsrt}
+
+\lhead{\emph{Referencias}}
+\bibliography{ref}
+\addtocontents{toc}{\vspace{2em}}
+
+% Apéndices
+\appendix
+% \input{./partes/apendiceA}
+%\input{./partes/apendiceB}
+%\input{./partes/apendiceC}
+\addtocontents{toc}{\vspace{2em}}
+
+\backmatter
+
+\end{document}

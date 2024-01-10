@@ -1,0 +1,32 @@
+\chapter{Conclusiones}
+\label{capitulo7}
+\lhead{Capítulo 7. \emph{Conclusiones}}
+
+En el capítulo anterior, se abordaron los desafíos del ajuste fino de la política estudiante y se proporcionó un detalle de los resultados de la política de evasión de obstáculos, tanto en entornos de simulación como en entornos de la vida real. En el presente capítulo, se confirmará el logro de los objetivos propuestos para este trabajo, se destacarán lecciones aprendidas y se abordarán las limitaciones identificadas. Así mismo, se presentarán sugerencias para futuras investigaciones que busquen aprovechar y mejorar la implementación de algoritmos para la evasión autónoma de obstáculos para QUAVs.
+
+Con respecto al cumplimiento de los objetivos propuestos para este trabajo, se puede observar que: 
+
+\begin{itemize}
+\item{
+    Se llevó a cabo una revisión del estado del arte de los algoritmos de evitación de obstáculos para drones autónomos, como se detalla en el capítulo \ref{capitulo4}. La investigación se organizó clasificando los estudios relevantes según su dependencia y uso de información global. Se profundizó específicamente en el trabajo titulado \textit{Learning high-speed flight in the wild} \cite{Loquercio2021} debido a sus características atractivas para el caso de implementación por parte de ACSL.
+}
+
+\item{
+    Se implementó un algoritmo de evitación de obstáculos para drones autónomos en un entorno de simulación. El algoritmo seleccionado se basó en la metodología propuesta por \cite{Loquercio2021}, y los detalles de su implementación se presentan en el capítulo \ref{capitulo5}. La evaluación de la implementación se llevó a cabo en el entorno de simulación AirSim \cite{shah2018airsim}, y los resultados de los vuelos realizados se describen en la sección \ref{sec:results-AirSim}.
+}
+
+\item{
+    Se trasladó la implementación realizada al hardware de un dron autónomo realizando las optimizaciones necesarias, y se realizaron de pruebas de campo de dicha implementación. Se empleó el dron SOTEN, un QUAV ligero diseñado y producido por ACSL para aplicaciones de vigilancia e inspección. Con el objetivo de reducir la carga computacional de la implementación, se introdujo un mecanismo que desactiva la inferencia de trayectorias cuando no hay obstáculos en el campo de visión del vehículo, según se detalla en los algoritmos \ref{alg:nearest-depth} y \ref{alg:inference-loop}. Además, para posibilitar la ejecución en el hardware físico de SOTEN, se tradujo la representación del modelo de inferencia utilizado en \cite{Loquercio2021} al estándar abierto para la interoperabilidad del aprendizaje de máquinas (ONNX). Finalmente, se llevaron a cabo pruebas de la implementación en un entorno de la vida real, como se describe en la sección \ref{sec:results-AirSim}.
+}
+\end{itemize}
+
+La consecución de cada uno de estos objetivos específicos valida y respalda el logro del objetivo general: implementar un algoritmo de evitación de obstáculos para drones autónomos y realizar pruebas tanto en un entorno de simulación como en el campo. Por lo tanto, se concluye que el presente trabajo cumplió satisfactoriamente con todos los objetivos propuestos.
+
+
+Por otro lado, en relación a los resultados observados del algoritmo implementado, se destaca principalmente la marcada preferencia del algoritmo por esquivar obstáculos mediante el flanco izquierdo. Esta preferencia se atribuye a las dificultades encontradas durante el proceso de refinamiento fino de la política estudiante, específicamente al problema de sobre-ajuste generado por el desbalance en la generación de trayectorias con una velocidad de ejecución de 1 m/s para la base de datos de refinamiento fino. Debido a limitaciones de tiempo en el desarrollo del trabajo, la evaluación del comportamiento del algoritmo se llevó a cabo bajo la presencia de la preferencia descrita anteriormente.
+
+Los resultados de la evaluación indicaron que el algoritmo es capaz de esquivar configuraciones de obstáculos simples donde la evasión por el flanco izquierdo es una solución directa, mostrando una tasa de éxito del 100\%. Sin embargo, se observó que en otras configuraciones donde esquivar por el flanco izquierdo es riesgoso o imposible, el algoritmo no logra completar de manera consistente los vuelos sin producir colisiones, llegando a alcanzar una tasa de éxito del 0\% en algunas configuraciones.
+
+En general se concluye que, los principales comportamientos defectuosos observados en los resultados de la evaluación de la solución fueron causados por las consecuencias del sobre-ajuste del modelo durante el refinamiento fino de la política estudiante. La generación adecuada de la base de datos de trayectorias para el refinamiento fino es crucial para que el rendimiento y la capacidad de generalización del algoritmo sean aceptables. 
+
+En este sentido, y para finalizar, se recomienda para futuras investigaciones, asegurarse de que el entorno de simulación utilizado para generar las trayectorias sea adecuado a la rapidez promedio de ejecución \jim{v_{des}}. Es importante que las dimensiones de los obstáculos permitan que en una observación se puedan considerar distintas alternativas para esquivar un mismo obstáculo. Si las alternativas consideradas tienden a alinearse hacia un comportamiento en particular, la política estudiante tendrá una fuerte tendencia a utilizar ese comportamiento incluso en casos cuando resulte riesgoso, tal como sucedió en este trabajo con la preferencia por esquivar hacia el flanco izquierdo. Esto podría solucionarse si se modifica la configuración de obstáculos, si se incrementa la longitud de las trayectorias generadas o se si utiliza un algoritmo de planificación global diferente. En resumen, lo importante es generar una base de datos de refinamiento fino con nivel de generalización similar al utilizado para el entrenamiento del modelo original.

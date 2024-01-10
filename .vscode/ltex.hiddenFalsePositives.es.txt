@@ -1,0 +1,1 @@
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\QEl capítulo 2 describe la empresa receptora en donde se realizo este trabajo, el Laboratorio de Sistemas de Control Autónomo (ACSL, del inglés Autonomous Control Systems Laboratory), localizado en Tokio, Japón.\\E$"}
