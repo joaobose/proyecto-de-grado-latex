@@ -1,27 +1,8 @@
-# Material
-
-- Box plot de maximas desviaciones.
-
-  - Sim single panel
-  - Sim double panel
-  - Real single panel
-
-- Graficos top-down de la trayectoria de los vuelos reales.
-
-  - Obstaculos paralelos a 4m
-  - Obstaculos paralelos a 1m
-
 # Capitulo 5 y 6
 
 - Agregar desviaciones en la tabla de resumen de los resultados.
 
-- Agregar mas gráficas de las estadisticas de los vuelos (gráfica de caminos ejecutados simultáneos en donde se mencionan los N vuelos en simulación).
-
-- Para la figuras 6.28 y 6.29, reemplazar con grafica de los caminos ejecutados simultaneos. Quizas tambien, colocar una forma de vizualizar las desviaciones, quizas un histograma o un boxplot. Adicionalmente donde dice "mayor" o "menor" colocar el valor en metros. Revisar si despues de hacer estos cambios vale la pena concervar las figuras 6.28 y 6.29 o si se podrian eliminar.
-
 - Mejorar el caption de la cadena de figura 6.17 para que quede explicito que son parte de un mismo vuelo que termina en colision.
-
-- Para las graficas de la vida real, para cada secuencia de vuelo, luego de ver los screenshots, colocar la grafica top-down de la trayectoria. Alternativamente, colocar grafico x-y-z en funcion del tiempo.
 
 - Antes de mostrar las pruebas, en donde se explican las configuraciones, recordar que la ejecucion esta limitada al plan xy.
 
