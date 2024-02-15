@@ -64,7 +64,7 @@ Los modelos a comparar son el modelo original, que destaca en la capacidad de pr
 
 De esta comparación podemos realizar algunas observaciones relevantes. Primero, el modelo original tiene dificultades en generar trayectorias con las características espaciales de las trayectorias con \jim{v_{des} = 1} m/s, esto tiene sentido pues la diferencia espacial entre moverse a 7 m/s y 1 m/s es bastante alta; esto simplemente confirma la dependencia entre \jim{v_{des}} del experto y el despeñó de la política estudiante a distintas velocidades, tal como se afirma en \cite{Loquercio2021}. Por otro lado, el modelo original logra generalizar la tarea de estimar el costo de ejecución de una trayectoria, los valores del componente de estimación de la pérdida están en el mismo orden tanto para \jim{v_{des} = 7} m/s como para \jim{v_{des} = 1} m/s. 
 
-Segundo, y mas relevante para este trabajo, los valores de pérdida del modelo ajustado sobre el conjunto con \jim{v_{des} = 1} m/s están dos ordenes de magnitud por debajo de los valores del modelo original sobre el conjunto con \jim{v_{des} = 7} m/s; esto puede indicar la presencia de sobre-ajuste (pérdida de capacidad de generalización), sin embargo, este sobre-ajuste no existe al nivel de conjuntos de entrenamiento y de validación, pero al nivel de los conjuntos de datos generados por el experto con distintos valores de \jim{v_{des}}. Para confirmar esta líneade pensamiento, se procede a visualizar una muestra de las trayectorias generadas con \jim{v_{des} = 1} m/s y compararlas con una muestra de las trayectorias generadas con \jim{v_{des} = 7} m/s. Si ambos conjuntos de datos tienen niveles equivalente de generalización, se debería observar en cada muestra una representación amplia de distintas trayectorias. Si alguna de las dos muestras tiene preferencia por un caso particular de trayectorias con respecto a la otra muestra, entonces esa base de datos tiene menos capacidad de generalización relativamente. De cada base de datos se seleccionaron 3 vuelos aleatoriamente, las figuras \ref{fig:7ms-sample} y \ref{fig:1ms-sample} visualizan las muestras seleccionadas. Cada muestra se visualiza como una vista ``de arriba hacia abajo'' de la nube de puntos del entorno junto con las trayectorias generadas durante el vuelo; el color de las trayectorias interpola entre azul y rojo, mientras mas rojo, mas costo de ejecución tiene la trayectoria. Este experimento se repitió 10 veces con resultados similares, para facilitar la visualización de los resultados, solo se muestra un solo experimento.
+Segundo, y mas relevante para este trabajo, los valores de pérdida del modelo ajustado sobre el conjunto con \jim{v_{des} = 1} m/s están dos ordenes de magnitud por debajo de los valores del modelo original sobre el conjunto con \jim{v_{des} = 7} m/s; esto puede indicar la presencia de sobre-ajuste (pérdida de capacidad de generalización), sin embargo, este sobre-ajuste no existe al nivel de conjuntos de entrenamiento y de validación, pero al nivel de los conjuntos de datos generados por el experto con distintos valores de \jim{v_{des}}. Para confirmar esta línea de pensamiento, se procede a visualizar una muestra de las trayectorias generadas con \jim{v_{des} = 1} m/s y compararlas con una muestra de las trayectorias generadas con \jim{v_{des} = 7} m/s. Si ambos conjuntos de datos tienen niveles equivalente de generalización, se debería observar en cada muestra una representación amplia de distintas trayectorias. Si alguna de las dos muestras tiene preferencia por un caso particular de trayectorias con respecto a la otra muestra, entonces esa base de datos tiene menos capacidad de generalización relativamente. De cada base de datos se seleccionaron 3 vuelos aleatoriamente, las figuras \ref{fig:7ms-sample} y \ref{fig:1ms-sample} visualizan las muestras seleccionadas. Cada muestra se visualiza como una vista ``de arriba hacia abajo'' de la nube de puntos del entorno junto con las trayectorias generadas durante el vuelo; el color de las trayectorias interpola entre azul y rojo, mientras mas rojo, mas costo de ejecución tiene la trayectoria. Este experimento se repitió 10 veces con resultados similares, para facilitar la visualización de los resultados, solo se muestra un solo experimento.
 
 \begin{figure}[H]
     \centering
@@ -84,9 +84,9 @@ A simple vista se observa una clara diferencia, en la base de datos con \jim{v_{
 
 Un posible origen de este problema, es que la poca longitud de las trayectorias generadas para \jim{v_{des} = 1} m/s no permite que el experto genere trayectorias que consideren todas las modas de la distribución \jim{P} con un valor de costo bajo; cuando el experto selecciona las mejores 3 trayectorias, estas trayectorias se descartan produciendo el desbalance. Otra posible razón puede ser que el planificador de trayectorias globales que genera \jim{\tau_{ref}} no permita la exploración de dichas trayectorias, principalmente por planificar trayectorias triviales en donde se navegue mayoritariamente sin encontrar obstáculos. 
 
-Una posible solución para este problema es modificar el entorno de simulación para que la configuración de los obstáculos permita que el experto considere las modas de \jim{P} con alto valor de costo, por ejemplo, incrementando la densidad de los obstáculos y reduciendo sus dimensiones. Otra posible solución es modificar los parámetros del planificador de trayectorias globales de forma que la ejecución de \jim{\tau_{ref}} fomente la exploración de obstáculos en donde se generen muestras que representen el carácter multi-modal de \jim{P}, por ejemplo, intencionalmente dirigiéndose hacia la cercanía de grupos de obstáculos. Alternativamente se pueden ejecutar las predicciones de la red en lugar de seguir una \jim{\tau_{ref}} planificada globalmente, y en su lugar utilizar una \jim{\tau_{ref}} que simplemente sea el camino en línearecta desde el punto de despegue hasta la meta; esto potencialmente va a incrementar la exploración de obstáculos en donde se generen muestras que representen múltiples moda de \jim{P}.
+Una posible solución para este problema es modificar el entorno de simulación para que la configuración de los obstáculos permita que el experto considere las modas de \jim{P} con alto valor de costo, por ejemplo, incrementando la densidad de los obstáculos y reduciendo sus dimensiones. Otra posible solución es modificar los parámetros del planificador de trayectorias globales de forma que la ejecución de \jim{\tau_{ref}} fomente la exploración de obstáculos en donde se generen muestras que representen el carácter multi-modal de \jim{P}, por ejemplo, intencionalmente dirigiéndose hacia la cercanía de grupos de obstáculos. Alternativamente se pueden ejecutar las predicciones de la red en lugar de seguir una \jim{\tau_{ref}} planificada globalmente, y en su lugar utilizar una \jim{\tau_{ref}} que simplemente sea el camino en línea recta desde el punto de despegue hasta la meta; esto potencialmente va a incrementar la exploración de obstáculos en donde se generen muestras que representen múltiples moda de \jim{P}.
 
-Dicho esto, por limitaciones del tiempo de desarrollo, y recomendaciones por parte del equipo de ACSL, en este trabajo no se soluciona el problema descrito anteriormente. Esto significa que la política estudiante utilizada en este trabajo sufre las consecuencias del sobre-ajuste ocasionado por el desbalance de modas en la base de datos con \jim{v_{des} = 1} m/s, esto puede ocasionar que la política de evasión de obstáculos tenga una preferencia fuerte en esquivar obstáculos de una forma en particular. En las siguientes secciones observaremos que efectivamente, la política de evasión de obstáculos tiene una fuerte preferencia a esquivar obstáculos por el flanco izquierdo, y observaremos como este comportamiento hace que la ejecución en entornos no triviales termine en potenciales colisiones.
+Dicho esto, por limitaciones del tiempo de desarrollo, y recomendaciones por parte del equipo de ACSL, en este trabajo no se soluciona el problema descrito anteriormente. Esto significa que la política estudiante utilizada en este trabajo sufre las consecuencias del sobre-ajuste ocasionado por el desbalance de modas en la bas de datos con \jim{v_{des} = 1} m/s, esto puede ocasionar que la política de evasión de obstáculos tenga una preferencia fuerte en esquivar obstáculos de una forma en particular. En las siguientes secciones observaremos que efectivamente, la política de evasión de obstáculos tiene una fuerte preferencia a esquivar obstáculos por el flanco izquierdo, y observaremos como este comportamiento hace que la ejecución en entornos no triviales termine en potenciales colisiones.
 
 \section{Resultados de la política de evasión de obstáculos}
 
@@ -96,7 +96,7 @@ Dicho esto, por limitaciones del tiempo de desarrollo, y recomendaciones por par
 
 \label{sec:results-AirSim}
 
-En esta sección se describen las configuraciones de los vuelos realizados en el entorno de simulación AirSim \cite{shah2018airsim}, así como también sus resultados y comportamientos observados. La primera configuración de obstáculos utilizada es una configuración simple con un solo obstáculo en la líneadirecta de visión del QUAV, un diagrama de la configuración se muestra en la figura \ref{fig:config-1-single}. En el diagrama se muestran dos vistas, la frontal (plano \jim{yz}) a partir desde el punto de despegue y la vista de arriba hacia abajo (plano \jim{xy}).
+En esta sección se describen las configuraciones de los vuelos realizados en el entorno de simulación AirSim \cite{shah2018airsim}, así como también sus resultados y comportamientos observados. La primera configuración de obstáculos utilizada es una configuración simple con un solo obstáculo en la línea directa de visión del QUAV, un diagrama de la configuración se muestra en la figura \ref{fig:config-1-single}. En el diagrama se muestran dos vistas, la frontal (plano \jim{yz}) a partir desde el punto de despegue y la vista de arriba hacia abajo (plano \jim{xy}).
 
 \begin{figure}[H]
     \centering
@@ -105,31 +105,49 @@ En esta sección se describen las configuraciones de los vuelos realizados en el
     \label{fig:config-1-single}
 \end{figure}
 
-El comportamiento del algoritmo se mostró capaz de evadir el obstáculo de forma robusta, en concreto, de 10 vuelos ejecutados, 10 resultaron en vuelos sin colisión. La figura \ref{fig:single-graph} muestra una visualización desde arriba hacia abajo de camino resultante de seguir las trayectorias generadas por el algoritmo durante un vuelo. Todos vuelos realizados en esta configuración muestran un comportamiento similar al que muestra en la figura \ref{fig:single-graph}, esto es, esquivar el obstáculo hacia la dirección \jim{-y_B}\footnote{Donde \jim{B} es el marco de referencia del cuerpo del QUAV.} y dirigirse hacia la meta una vez no es visible el obstáculo.
+El comportamiento del algoritmo se mostró capaz de evadir el obstáculo de forma robusta, en concreto, de 10 vuelos ejecutados, 10 resultaron en vuelos sin colisión. La figura \ref{fig:single-graph-4} muestra una visualización desde arriba hacia abajo de los caminos resultantes de seguir las trayectorias generadas por el algoritmo para 4 vuelos. Todos vuelos realizados en esta configuración muestran un comportamiento similar a lo que se observa en la figura \ref{fig:single-graph-4}, esto es, esquivar el obstáculo hacia la dirección \jim{-y_B}\footnote[1]{Donde \jim{B} es el marco de referencia del cuerpo del QUAV.} y dirigirse hacia la meta una vez no es visible el obstáculo.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.55]{partes/img/sim-simgle-panel-graph.png}
-    \caption[Visualización del camino ejecutado dentro de la primera configuración de obstáculos.]{Visualización del camino ejecutado dentro de la primera configuración de obstáculos. De 10 vuelos ejecutados dentro de esta configuración, 10 resultaron sin colisión.}
-    \label{fig:single-graph}
+    \includegraphics[scale=0.65]{partes/img/sim-single-panel-graph-4.png}
+    \caption[Visualización simultánea de 4 caminos ejecutados dentro de la primera configuración de obstáculos en entorno de simulación.]{Visualización simultánea de 4 caminos ejecutados dentro de la primera configuración de obstáculos en entorno de simulación. De 10 vuelos ejecutados dentro de esta configuración, 10 resultaron sin colisión.}
+    \label{fig:single-graph-4}
 \end{figure}
 
-La siguiente configuración utilizada es una configuración similar a la anterior pero con un obstáculo adicional también en la misma líneade visión del QUAV. La figura \ref{fig:config-2-double} muestra el diagrama de la segunda configuración.
+La diferencia más marcada entre vuelos en esta configuración es la desviación máxima del camino ejecutado con respecto al camino directo entre el punto de despegue y la meta, la figura \ref{fig:single-max-deviation} muestra un diagrama de caja de la desviación máxima de los caminos ejecutados en esta configuración. La desviación máxima promedio de los caminos ejecutados en esta configuración es cerca de 3.1 metros, con una desviación máxima de cerca de 3.45 metros y una desviación mínima de cerca de 2.75 metros.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.55]{partes/img/sim-single-panel-box.png}
+    \caption[Diagrama de caja de la desviación máxima de los caminos ejecutados en la primera configuración de obstáculos en entorno de simulación.]{Diagrama de caja de la desviación máxima de los caminos ejecutados en la primera configuración de obstáculos en entorno de simulación.}
+    \label{fig:single-max-deviation}
+\end{figure}
+
+La siguiente configuración utilizada es una configuración similar a la anterior pero con un obstáculo adicional también en la misma línea de visión del QUAV. La figura \ref{fig:config-2-double} muestra el diagrama de la segunda configuración.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.35]{partes/img/config-2-double.png}
-    \caption[Segunda configuración de obstáculos dentro del entorno de AirSim.]{Segunda configuración de obstáculos dentro del entorno de AirSim. Dos obstáculos consecutivos en la líneade visión del QUAV.}
+    \caption[Segunda configuración de obstáculos dentro del entorno de AirSim.]{Segunda configuración de obstáculos dentro del entorno de AirSim. Dos obstáculos consecutivos en la línea de visión del QUAV.}
     \label{fig:config-2-double}
 \end{figure}
 
-Tal como en la configuración anterior, el comportamiento de algoritmo fue estable, de 10 vuelos ejecutados, 10 resultaron en vuelos sin colisión. La figura \ref{fig:double-graph} muestra una visualización desde arriba hacia abajo de camino resultante de seguir las trayectorias generadas por el algoritmo durante un vuelo. 
+Tal como en la configuración anterior, el comportamiento de algoritmo fue estable, de 10 vuelos ejecutados, 10 resultaron en vuelos sin colisión. La figura \ref{fig:double-graph-4} muestra una visualización desde arriba hacia abajo de caminos resultantes de seguir las trayectorias generadas por el algoritmo para 4 vuelos. Todos vuelos realizados en esta configuración muestran un comportamiento similar a lo que se observa en la figura \ref{fig:double-graph-4}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.55]{partes/img/sim-double-panel-graph.png}
-    \caption[Visualización del camino ejecutado dentro de la segunda configuración de obstáculos.]{Visualización del camino ejecutado dentro de la segunda configuración de obstáculos. De 10 vuelos ejecutados dentro de esta configuración, 10 resultaron sin colisión.}
-    \label{fig:double-graph}
+    \includegraphics[scale=0.5]{partes/img/sim-double-panel-graph-4.png}
+    \caption[Visualización simultánea de 4 caminos ejecutados dentro de la segunda configuración de obstáculos en entorno de simulación.]{Visualización simultánea de 4 caminos ejecutados dentro de la segunda configuración de obstáculos en entorno de simulación. De 10 vuelos ejecutados dentro de esta configuración, 10 resultaron sin colisión.}
+    \label{fig:double-graph-4}
+\end{figure}
+
+En lo que respecta a la desviación máxima de los caminos ejecutados en esta configuración, la figura \ref{fig:double-max-deviation} muestra un diagrama de caja de la desviación máxima de los caminos ejecutados. La desviación máxima promedio de los caminos ejecutados en esta configuración es cerca de 3.7 metros, con una desviación máxima de cerca de 4 metros y una desviación mínima de cerca de 3.3 metros. Estos resultados muestran como la maniobra para esquivar el segundo obstáculo incrementa la desviación máxima de los caminos ejecutados.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.55]{partes/img/sim-double-panel-box.png}
+    \caption[Diagrama de caja de la desviación máxima de los caminos ejecutados en la segunda configuración de obstáculos en entorno de simulación.]{Diagrama de caja de la desviación máxima de los caminos ejecutados en la segunda configuración de obstáculos en entorno de simulación.}
+    \label{fig:double-max-deviation}
 \end{figure}
 
 Es interesante resaltar, que en los vuelos dentro de la segunda configuración, se confirma el funcionamiento del mecanismo que desactiva la inferencia cuando no hay obstáculos visibles. Para visualizar esto, se desarrolló una visualización 3D que permite visualizar la ejecución del algoritmo incluyendo la información sensorial de profundidad y las trayectorias generadas. En esta visualización se muestra:
@@ -139,7 +157,7 @@ Es interesante resaltar, que en los vuelos dentro de la segunda configuración, 
     \item El camino ejecutado por el QUAV, que se muestra como una curva de color blanco.
     \item La trayectoria mas reciente generada por la política estudiante, que se muestra como una curva de color verde que comienza en la posición en donde se realizo la inferencia.
     \item El radio de colisión del QUAV, que se muestra como una circunferencia de color azul alrededor de la posición del QUAV. Si un obstáculo entra dentro de esta circunferencia se considera una colisión.
-    \item La dirección del encabezamiento del QUAV, que se muestra como una línearoja que parte de la posición del QUAV.
+    \item La dirección del encabezamiento del QUAV, que se muestra como una línea roja que parte de la posición del QUAV.
     \item Las posiciones de despegue y de meta, que se muestran como un circulo rojo y verde respectivamente.
     \item El camino directo entre el punto de despegue y la meta.
     \item La orientación tridimensional del entorno, que se muestra como 3 flechas; una azul que representa la dirección del eje \jim{z}, una verde que representa la dirección del eje \jim{y} y una roja que representa la dirección del eje \jim{x}. Es importante mencionar que debido a limitaciones del programa de visualización, la dirección del eje \jim{y} se encuentra invertida con respecto al resto de visualizaciones en este capítulo.
@@ -281,9 +299,9 @@ En la tabla \ref{table:sim-results} se muestra un resumen de los resultados obte
 
 \label{sec:results-SOTEN}
 
-En esta sección se describen las configuraciones y resultados de los vuelos realizados sobre la plataforma física de implementación (QUAV SOTEN\footnote{En la figura \ref{fig:SOTEN} se muestra al QUAV SOTEN.}) en un entorno de la vida real. Esto vuelos fueron ejecutados en un campo de vuelo para drones ubicado en la prefectura de Chiba, Japón; las condiciones climáticas del día fueron: soleado con un ligero viento en dirección hacia el oeste. Durante los vuelos, un piloto experto estuvo preparado para controlar manualmente el QUAV en caso de que una colisión fuera inminente. En esta sección se utilizara el termino ``colision'' para referirse al evento de interrumpir el vuelo autónomo para evitar una colisión inminente.
+En esta sección se describen las configuraciones y resultados de los vuelos realizados sobre la plataforma física de implementación (QUAV SOTEN\footnote[1]{En la figura \ref{fig:SOTEN} se muestra al QUAV SOTEN.}) en un entorno de la vida real. Esto vuelos fueron ejecutados en un campo de vuelo para drones ubicado en la prefectura de Chiba, Japón; las condiciones climáticas del día fueron: soleado con un ligero viento en dirección hacia el oeste. Durante los vuelos, un piloto experto estuvo preparado para controlar manualmente el QUAV en caso de que una colisión fuera inminente. En esta sección se utilizara el termino ``colision'' para referirse al evento de interrumpir el vuelo autónomo para evitar una colisión inminente.
 
-La primera configuración de obstáculos utilizada fue una configuración simple con un solo obstáculo en la líneadirecta de visión del QUAV, la figura \ref{real-1-single-0-setup} muestra una fotografía ilustrada que describe la configuración.
+La primera configuración de obstáculos utilizada fue una configuración simple con un solo obstáculo en la línea directa de visión del QUAV, la figura \ref{real-1-single-0-setup} muestra una fotografía ilustrada que describe la configuración.
 
 \begin{figure}[H]
     \centering
@@ -292,20 +310,20 @@ La primera configuración de obstáculos utilizada fue una configuración simple
     \label{real-1-single-0-setup}
 \end{figure}
 
-Se realizaron 11 vuelos en esta configuración, y los resultados fueron análogos a los obtenidos en simulación, en concreto, de 11 vuelos ejecutados, 10 resultaron sin colisión. Los caminos resultantes de los vuelos también fueron análogos a los obtenidos en simulación, sin embargo, debido a variaciones en el viento y en las condiciones de iluminación, algunas ejecuciones se desviaron considerablemente del camino directo. La figura \ref{real-1-single-2-graph-worst} muestra una visualización del camino resultante del vuelo con \textbf{mayor} desviación; por otro lado la figura \ref{real-1-single-1-graph-best} una visualización del camino resultante del vuelo con \textbf{menor} desviación; tal como se aprecia en las figuras, la desviación máxima durante el vuelo estuvo contenida entre 2 metros y 4 metros a lo largo de los vuelos ejecutados.
+Se realizaron 11 vuelos en esta configuración, y los resultados fueron análogos a los obtenidos en simulación, en concreto, de 11 vuelos ejecutados, 10 resultaron sin colisión y uno fue abortado por el piloto debido a la influencia de una fuerte ráfaga de viento. Los caminos resultantes de los vuelos también fueron análogos a los obtenidos en simulación, sin embargo, debido a variaciones en el viento y en las condiciones de iluminación, algunas ejecuciones se desviaron considerablemente del camino directo. La figura \ref{real-1-single-graph} muestra una visualización de arriba hacia abajo de 10 de los caminos ejecutados en esta configuración, incluyendo el vuelo que fue abortado por el piloto. Podemos observar que la desviación máxima de los caminos ejecutados con respecto al camino directo entre el punto de despegue y la meta varía bastante entre vuelos (probablemente debido a las variaciones en el viento), la figura \ref{real-1-single-box} muestra un diagrama de caja de la desviación máxima de los caminos ejecutados en esta configuración. La desviación máxima promedio de los caminos ejecutados en esta configuración es cerca de 3.2 metros, con una desviación máxima de cerca de 4.5 metros y una desviación mínima de cerca de 2 metros.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.47]{partes/img/real-1-single-2-graph-worst.png}
-    \caption[Visualización del camino resultante del vuelo con mayor desviación para un obstáculo simple en entorno real.]{Visualización del camino resultante del vuelo con \textbf{mayor} desviación para un obstáculo simple en entorno real.}
-    \label{real-1-single-2-graph-worst}
+    \includegraphics[scale=0.55]{partes/img/real-1-single-graph-all.png}
+    \caption[Visualización de 10 caminos ejecutados en la primera configuración de obstáculos en entorno real.]{Visualización de 10 caminos ejecutados en la primera configuración de obstáculos en entorno real. Incluyendo el vuelo que fue abortado por el piloto.}
+    \label{real-1-single-graph}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.47]{partes/img/real-1-single-1-graph-best.png}
-    \caption[Visualización del camino resultante del vuelo con menor desviación para un obstáculo simple en entorno real.]{Visualización del camino resultante del vuelo con \textbf{menor} desviación para un obstáculo simple en entorno real.}
-    \label{real-1-single-1-graph-best}
+    \includegraphics[scale=0.7]{partes/img/real-1-single-box.png}
+    \caption[Diagrama de caja de la desviación máxima de los caminos ejecutados en la primera configuración de obstáculos en entorno real.]{Diagrama de caja de la desviación máxima de los caminos ejecutados en la primera configuración de obstáculos en entorno real.}
+    \label{real-1-single-box}
 \end{figure}
 
 En todos los vuelos ejecutados en esta configuración, el algoritmo esquivó el obstáculo por el flanco izquierdo y continuo en dirección a la meta. Las figuras \ref{real-1-single-3-frames-1}, \ref{real-1-single-3-frames-2} y \ref{real-1-single-3-frames-3} muestran capturas de una grabación de uno de los vuelos sobre esta configuración. Las figuras \ref{real-1-single-4-frames-1}, \ref{real-1-single-4-frames-2} y \ref{real-1-single-4-frames-3} también muestran capturas de una grabación de uno de los vuelos sobre esta configuración pero en una perspectiva diferente. En estas figuras se aprecia claramente el comportamiento del algoritmo, en particular: comenzar el vuelo, esquivar el obstáculo por el flanco izquierdo, continuar avanzando hasta que se termine la trayectoria actual y finalmente, como no se observan obstáculos, navegar en dirección a la meta.
@@ -354,7 +372,7 @@ En todos los vuelos ejecutados en esta configuración, el algoritmo esquivó el 
 
 La segunda configuración de obstáculos utilizada fue una configuración con dos obstáculos paralelos con una separación entre si, esta separación fue distinta para cada vuelo. A diferencia de la configuración anterior, en esta configuración solo se hicieron 3 vuelos. El objetivo de estos vuelos era observar el comportamiento del algoritmo en este escenario, en particular, confirmar la presencia de la tendencia certera de esquivar obstáculos por el flanco izquierdo que se observó durante vuelos análogos en entornos de simulación; así como también observar si esta tendencia produce colisiones inminentes.
 
-En el primer vuelo en esta configuración se utilizó una separación de 3 metros, la figura \ref{real-2-parallelA-0-config} muestra una fotografía que ilustra la configuración utilizada. Este vuelo fue abortado por colisión inminente, la figura \ref{real-2-parallelA-1-frames} muestra capturas de la grabación de este vuelo en donde se observa el comportamiento del algoritmo. Primero (\ref{real-2-parallelA-1-frames}(a)), la ejecución comienza; segundo (\ref{real-2-parallelA-1-frames}(b)), el QUAV se dirige hacia el espacio entre ambos obstáculos en lugar de esquivar los obstáculos por el flanco derecho; y tercero (\ref{real-2-parallelA-1-frames}(c)), cuando el obstáculo derecho sale del campo de visión, el algoritmo intenta esquivar el obstáculo que aun es visible por el flanco izquierdo, lo cual produce una colisión inminente, haciendo que el piloto tenga que abortar el vuelo. Estos resultados coinciden con el comportamiento observado en simulación \footnote{Vea la figura \ref{fig:depth-parallel-5}}, y confirman la presencia de la tendencia certera a esquivar obstáculos por el flanco izquierdo.
+En el primer vuelo en esta configuración se utilizó una separación de 3 metros, la figura \ref{real-2-parallelA-0-config} muestra una fotografía que ilustra la configuración utilizada. Este vuelo fue abortado por colisión inminente, la figura \ref{real-2-parallelA-1-frames} muestra capturas de la grabación de este vuelo en donde se observa el comportamiento del algoritmo. Primero (\ref{real-2-parallelA-1-frames}(a)), la ejecución comienza; segundo (\ref{real-2-parallelA-1-frames}(b)), el QUAV se dirige hacia el espacio entre ambos obstáculos en lugar de esquivar los obstáculos por el flanco derecho; y tercero (\ref{real-2-parallelA-1-frames}(c)), cuando el obstáculo derecho sale del campo de visión, el algoritmo intenta esquivar el obstáculo que aun es visible por el flanco izquierdo, lo cual produce una colisión inminente, haciendo que el piloto tenga que abortar el vuelo. Estos resultados coinciden con el comportamiento observado en simulación \footnote[1]{Vea la figura \ref{fig:depth-parallel-5}}, y confirman la presencia de la tendencia certera a esquivar obstáculos por el flanco izquierdo.
 
 \begin{figure}[H]
     \centering
@@ -370,7 +388,7 @@ En el primer vuelo en esta configuración se utilizó una separación de 3 metro
     \label{real-2-parallelA-1-frames}
 \end{figure}
 
-El segundo vuelo en la configuración de obstáculos paralelos utilizó una separación de 4 metros, la figura \ref{real-3-parallelB-0-config} muestra una fotografía que ilustra la configuración utilizada. Este vuelo resultó exitoso, la figura \ref{real-3-parallelB-1-frames} muestra capturas de la grabación de este vuelo en donde se observa el comportamiento del algoritmo. Primero (\ref{real-3-parallelB-1-frames}(a)), la ejecución comienza y el QUAV navega hacia el espacio entre los dos obstáculos; segundo (\ref{real-3-parallelB-1-frames}(b)), esta vez, el obstáculo izquierdo sale del campo de visión, y el QUAV continúa hacia el espacio entre los dos obstáculos; y tercero (\ref{real-3-parallelB-1-frames}(c)), se superan los obstáculos y se navega en dirección a la meta. De este vuelo confirmamos que si la configuración de obstáculos paralelos es tal que el primer obstáculo que desaparece el campo de visión es el obstáculo izquierdo, entonces es posible que el algoritmo sea capaz de completar el vuelo sin producir colisiones.
+El segundo vuelo en la configuración de obstáculos paralelos utilizó una separación de 4 metros, la figura \ref{real-3-parallelB-0-config} muestra una fotografía que ilustra la configuración utilizada. Este vuelo resultó exitoso, la figura \ref{real-3-parallelB-1-frames} muestra capturas de la grabación de este vuelo en donde se observa el comportamiento del algoritmo. Primero (\ref{real-3-parallelB-1-frames}(a)), la ejecución comienza y el QUAV navega hacia el espacio entre los dos obstáculos; segundo (\ref{real-3-parallelB-1-frames}(b)), esta vez, el obstáculo izquierdo sale del campo de visión, y el QUAV continúa hacia el espacio entre los dos obstáculos; y tercero (\ref{real-3-parallelB-1-frames}(c)), se superan los obstáculos y se navega en dirección a la meta. De este vuelo confirmamos que si la configuración de obstáculos paralelos es tal que el primer obstáculo que desaparece el campo de visión es el obstáculo izquierdo, entonces es posible que el algoritmo sea capaz de completar el vuelo sin producir colisiones. La figura \ref{real-3-parallelB-2-graph} muestra una visualización de arriba hacia abajo del camino ejecutado por el QUAV en este vuelo.
 
 \begin{figure}[H]
     \centering
@@ -386,20 +404,41 @@ El segundo vuelo en la configuración de obstáculos paralelos utilizó una sepa
     \label{real-3-parallelB-1-frames}
 \end{figure}
 
-El tercer y ultimo vuelo en la configuración de obstáculos paralelos utilizó una separación de 1 metro, la figura \ref{real-3-parallelB-0-config} muestra una fotografía que ilustra la configuración utilizada. Este vuelo resultó exitoso y la razón por la cual fue exitoso provee información adicional sobre la capacidad de evasión de obstáculos del algoritmo. La figura \ref{real-4-parallelC-1-frames} muestra capturas de la grabación de este vuelo en donde se observa el comportamiento del algoritmo. Primero (\ref{real-4-parallelC-1-frames}(a)), la ejecución comienza y el QUAV navega hacia el espacio entre los dos obstáculos; segundo, en el momento que el obstáculo izquierdo se vuelve el obstáculo mas grande en el campo de visión, el algoritmo intenta fuertemente corregir la trayectoria para esquivar el conjunto de obstáculos por el flanco izquierdo del obstáculo izquierdo, esto ocurre tempranamente en el vuelo pues la separación entre los obstáculos es relativamente pequeña; y tercero, como la decisión de de corregir la trayectoria hacia la izquierda ocurre de forma temprana, el algoritmo tiene tiempo de completar la trayectoria sin producir colisiones, resultando en una ejecución exitosa. El resultado de este vuelo expone que si existe el espacio y el tiempo para esquivar un conjunto de obstáculos por el flanco mas hacia la izquierda, es posible que la política de evasión de obstáculos sea capaz de completar el vuelo exitosamente.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{partes/img/real-3-parallelB-2-graph.png}
+    \caption[Visualización del camino ejecutado por el QUAV para la configuración de obstáculos paralelos a 4 metros de separación en entorno real.]{Visualización del camino ejecutado por el QUAV para la configuración de obstáculos paralelos a 4 metros de separación en entorno real.}
+    \label{real-3-parallelB-2-graph}
+\end{figure}
+
+El tercer y ultimo vuelo en la configuración de obstáculos paralelos utilizó una separación de 1 metro, la figura \ref{real-3-parallelB-0-config} muestra una fotografía que ilustra la configuración utilizada. Este vuelo resultó exitoso y la razón por la cual fue exitoso provee información adicional sobre la capacidad de evasión de obstáculos del algoritmo. La figura \ref{real-4-parallelC-1-frames} muestra capturas de la grabación de este vuelo en donde se observa el comportamiento del algoritmo. Primero (\ref{real-4-parallelC-1-frames}(a)), la ejecución comienza y el QUAV navega hacia el espacio entre los dos obstáculos; segundo, en el momento que el obstáculo izquierdo se vuelve el obstáculo mas grande en el campo de visión, el algoritmo intenta fuertemente corregir la trayectoria para esquivar el conjunto de obstáculos por el flanco izquierdo del obstáculo izquierdo, esto ocurre tempranamente en el vuelo pues la separación entre los obstáculos es relativamente pequeña; y tercero, como la decisión de de corregir la trayectoria hacia la izquierda ocurre de forma temprana, el algoritmo tiene tiempo de completar la trayectoria sin producir colisiones, resultando en una ejecución exitosa. La figura \ref{real-4-parallelC-2-graph} muestra una visualización de arriba hacia abajo del camino ejecutado por el QUAV en esta configuración, en donde se evidencia el momento en el que el algoritmo intenta corregir fuertemente; adicionalmente, para respladar la magnitud de la corrección en la figura \ref{real-4-parallelC-3-yaw} se muestra el grafico del encabezamiento del QUAV en función del tiempo, en donde se observan oscilaciones de relativamente alta magnitud. El resultado de este vuelo expone que si existe el espacio y el tiempo para esquivar un conjunto de obstáculos por el flanco mas hacia la izquierda, es posible que la política de evasión de obstáculos sea capaz de completar el vuelo exitosamente.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.27]{partes/img/real-4-parallelC-0-config.png}
+    \includegraphics[scale=0.25]{partes/img/real-4-parallelC-0-config.png}
     \caption[Configuración de obstáculos en entorno real: Obstáculos paralelos a 1 metro de separación.]{Configuración de obstáculos en entorno real: Obstáculos paralelos a 1 metro de separación.}
     \label{real-4-parallelC-0-config}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.25]{partes/img/real-4-parallelC-1-frames.png}
+    \includegraphics[scale=0.24]{partes/img/real-4-parallelC-1-frames.png}
     \caption[Capturas de la grabación del vuelo en entorno real con obstáculos paralelos a 1 metro de separación.]{Capturas de la grabación del vuelo en entorno real con obstáculos paralelos a 1 metro de separación. \textbf{(a)} La ejecución comienza y el QUAV navega hacia el espacio entre los dos obstáculos. \textbf{(b)} El obstáculo izquierdo se vuelve el obstáculo mas grande en el campo de visión y el algoritmo intenta fuertemente corregir la trayectoria para esquivar el conjunto de obstáculos por el flanco izquierdo del obstáculo izquierdo. \textbf{(c)} Como la decisión de de corregir la trayectoria hacia la izquierda ocurre de forma temprana, el algoritmo tiene tiempo de completar la trayectoria sin producir colisiones, resultando en una ejecución exitosa. }
     \label{real-4-parallelC-1-frames}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{partes/img/real-4-parallelC-2-graph.png}
+    \caption[Visualización del camino ejecutado por el QUAV para la configuración de obstáculos paralelos a 1 metro de separación en entorno real.]{Visualización del camino ejecutado por el QUAV para la configuración de obstáculos paralelos a 1 metro de separación en entorno real. Se puede observar el momento en el que el algoritmo intenta corregir fuertemente la trayectoria hacia la izquierda.}
+    \label{real-4-parallelC-2-graph}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{partes/img/real-4-parallelC-3-yaw.png}
+    \caption[Grafico del encabezamiento del QUAV en función del tiempo para la configuración de obstáculos paralelos a 1 metro de separación en entorno real.]{Grafico del encabezamiento del QUAV en función del tiempo para la configuración de obstáculos paralelos a 1 metro de separación en entorno real. Se observan oscilaciones de relativamente alta magnitud que corresponden al momento en el que el algoritmo intenta corregir fuertemente la trayectoria hacia la izquierda.}
+    \label{real-4-parallelC-3-yaw}
 \end{figure}
 
 Los vuelos realizados permiten evaluar la estabilidad del algoritmo de evasión de obstáculos en entornos de la vida real, resaltando su consistencia, especialmente en la configuración de un obstáculo simple. No obstante, los resultados también revelan los efectos derivados de las dificultades encontradas durante el refinamiento fino de la política estudiante, manifestándose principalmente en la preferencia absoluta por esquivar obstáculos hacia el flanco izquierdo. Como consecuencia directa de estos vuelos, se exploran escenarios que ilustran el impacto de esta preferencia en situaciones de la vida real que involucran configuraciones de dos obstáculos paralelos. Dicho esto, finalmente, en la tabla \ref{table:real-results} se muestra un resumen de los resultados obtenidos en los vuelos en entornos de la vida real.

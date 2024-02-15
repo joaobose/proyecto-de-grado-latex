@@ -1,24 +1,41 @@
+# Material
+
+- Box plot de maximas desviaciones.
+
+  - Sim single panel
+  - Sim double panel
+  - Real single panel
+
+- Graficos top-down de la trayectoria de los vuelos reales.
+
+  - Obstaculos paralelos a 4m
+  - Obstaculos paralelos a 1m
+
 # Capitulo 5 y 6
 
-- Modificar el resumen del capitulo 5 para que se refleje que lo que hizo es realmente el corazon del trabajo, en el sentido de que se logro implementar el algoritmo con los pocos recursos de computo y sobretodo, en concordancia con el entonrno de trabajo de ACSL.
-
-- Antes de mostrar las pruebas, en donde se explican las configuraciones, recordar que la ejecucion esta limitada al plan xy.
+- Agregar desviaciones en la tabla de resumen de los resultados.
 
 - Agregar mas gráficas de las estadisticas de los vuelos (gráfica de caminos ejecutados simultáneos en donde se mencionan los N vuelos en simulación).
 
-- Explicar o resaltar la limitacion del ACSL API para enviar velocidades angulares, explicar el control propocional improvisado.
-
-- Colocar tablas para la comparación de los valores de la función de costo, adicionamente, profundizar un poco en la explicacion y de aporte en el benchmark (voices de Gerardo).
+- Para la figuras 6.28 y 6.29, reemplazar con grafica de los caminos ejecutados simultaneos. Quizas tambien, colocar una forma de vizualizar las desviaciones, quizas un histograma o un boxplot. Adicionalmente donde dice "mayor" o "menor" colocar el valor en metros. Revisar si despues de hacer estos cambios vale la pena concervar las figuras 6.28 y 6.29 o si se podrian eliminar.
 
 - Mejorar el caption de la cadena de figura 6.17 para que quede explicito que son parte de un mismo vuelo que termina en colision.
 
-- Si es posible, agregar más metricas para los vuelos, algo que permita evaluar las metricas. Quizas agregar el resto de graficas (las de velocidad, posicion, attitude, etc).
-
-- Para la figuras 6.28 y 6.29, reemplazar con grafica de los caminos ejecutados simultaneos. Quizas tambien, colocar una forma de vizualizar las desviaciones, quizas un histograma o un boxplot. Adicionalmente donde dice "mayor" o "menor" colocar el valor en metros. Revisar si despues de hacer estos cambios vale la pena concervar las figuras 6.28 y 6.29 o si se podrian eliminar.
-
 - Para las graficas de la vida real, para cada secuencia de vuelo, luego de ver los screenshots, colocar la grafica top-down de la trayectoria. Alternativamente, colocar grafico x-y-z en funcion del tiempo.
 
+- Antes de mostrar las pruebas, en donde se explican las configuraciones, recordar que la ejecucion esta limitada al plan xy.
+
 - Agregar comparación entre simulación y realidad, quizas una combinación de las dos tablas.
+
+- Colocar tablas para la comparación de los valores de la función de costo, adicionamente, profundizar un poco en la explicacion y de aporte en el benchmark (voices de Gerardo).
+
+- Modificar el resumen del capitulo 5 para que se refleje que lo que hizo es realmente el corazon del trabajo, en el sentido de que se logro implementar el algoritmo con los pocos recursos de computo y sobretodo, en concordancia con el entonrno de trabajo de ACSL.
+
+---
+
+- Explicar o resaltar la limitacion del ACSL API para enviar velocidades angulares, explicar el control propocional improvisado.
+
+- Si es posible, agregar más metricas para los vuelos, algo que permita evaluar las metricas. Quizas agregar el resto de graficas (las de velocidad, posicion, attitude, etc).
 
 # Conclusion
 
@@ -45,3 +62,5 @@
 - Mencionar la posibilidad de problema de sintonizacion del controlador, mencionar limitaciones del controlador y la imposibilidad de realizar cambios o controlar el controlador a bajo nivel.
 
 - Si hace falta: Mencionar la posibilidad de que es posible que se haya alcanzado un minimo local con respecto al dataset de 1 m/s (un minimo local en donde la politica solo va hacia la izquierda pues eso cubre la mayoria de los casos).
+
+---
