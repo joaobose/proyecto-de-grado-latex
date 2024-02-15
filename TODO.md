@@ -2,10 +2,6 @@
 
 - Agregar desviaciones en la tabla de resumen de los resultados.
 
-- Mejorar el caption de la cadena de figura 6.17 para que quede explicito que son parte de un mismo vuelo que termina en colision.
-
-- Antes de mostrar las pruebas, en donde se explican las configuraciones, recordar que la ejecucion esta limitada al plan xy.
-
 - Agregar comparación entre simulación y realidad, quizas una combinación de las dos tablas.
 
 - Colocar tablas para la comparación de los valores de la función de costo, adicionamente, profundizar un poco en la explicacion y de aporte en el benchmark (voices de Gerardo).

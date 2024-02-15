@@ -96,7 +96,9 @@ Dicho esto, por limitaciones del tiempo de desarrollo, y recomendaciones por par
 
 \label{sec:results-AirSim}
 
-En esta sección se describen las configuraciones de los vuelos realizados en el entorno de simulación AirSim \cite{shah2018airsim}, así como también sus resultados y comportamientos observados. La primera configuración de obstáculos utilizada es una configuración simple con un solo obstáculo en la línea directa de visión del QUAV, un diagrama de la configuración se muestra en la figura \ref{fig:config-1-single}. En el diagrama se muestran dos vistas, la frontal (plano \jim{yz}) a partir desde el punto de despegue y la vista de arriba hacia abajo (plano \jim{xy}).
+En esta sección se describen las configuraciones de los vuelos realizados en el entorno de simulación AirSim \cite{shah2018airsim}, así como también sus resultados y comportamientos observados. Es importante recordar que por motivos de validación del concepto por parte de ACSL, la ejecución de la evasión de obstáculos está limitada al plano \jim{xy} del marco de referencia del cuerpo del QUAV.
+
+La primera configuración de obstáculos utilizada es una configuración simple con un solo obstáculo en la línea directa de visión del QUAV, un diagrama de la configuración se muestra en la figura \ref{fig:config-1-single}. En el diagrama se muestran dos vistas, la frontal (plano \jim{yz}) a partir desde el punto de despegue y la vista de arriba hacia abajo (plano \jim{xy}).
 
 \begin{figure}[H]
     \centering
@@ -195,33 +197,33 @@ Durante todas las pruebas descritas anteriormente, se observó que la política 
     \label{fig:config-3-parallel}
 \end{figure}
 
-Incluso con la presencia de un obstáculo adicional en la dirección \jim{-y_B}, la política de evasión de obstáculos en todas las pruebas realizadas generó trayectorias dirigidas hacia \jim{-y_B}, lo cual produjo colisiones frecuentes, de 10 vuelos ejecutados, 2 fueron sin colisión. En las figuras \ref{fig:depth-parallel-1}, \ref{fig:depth-parallel-2},  \ref{fig:depth-parallel-4} y \ref{fig:depth-parallel-5} se muestran capturas de la visualización 3D de un vuelo que resulto en colisión. Tal como se aprecia en las figuras, mientras ambos obstáculos son visibles en el campo de visión del QUAV, la trayectoria se dirige al espacio entre ambos obstáculos, con un comportamiento que parece guiar al QUAV a una ejecución sin colisiones; sin embargo, en el momento que solo un de los dos obstáculo es visible, en lugar de continuar dirigiéndose hacia el espacio entre ambos obstáculos, la política intenta corregir la trayectoria para esquivar por el flanco en dirección \jim{-y_B} relativo al obstáculo, lo cual produce una colisión. 
+Incluso con la presencia de un obstáculo adicional en la dirección \jim{-y_B}, la política de evasión de obstáculos en todas las pruebas realizadas generó trayectorias dirigidas hacia \jim{-y_B}, lo cual produjo colisiones frecuentes, de 10 vuelos ejecutados, 2 fueron sin colisión. En las figuras \ref{fig:depth-parallel-1}, \ref{fig:depth-parallel-2},  \ref{fig:depth-parallel-4} y \ref{fig:depth-parallel-5} se muestra una secuencia consecutiva de capturas de la visualización 3D de un vuelo que resultó en colisión. Tal como se aprecia en las figuras, mientras ambos obstáculos son visibles en el campo de visión del QUAV, la trayectoria se dirige al espacio entre ambos obstáculos, con un comportamiento que parece guiar al QUAV a una ejecución sin colisiones; sin embargo, en el momento que solo un de los dos obstáculo es visible, en lugar de continuar dirigiéndose hacia el espacio entre ambos obstáculos, la política intenta corregir la trayectoria para esquivar por el flanco en dirección \jim{-y_B} relativo al obstáculo, lo cual produce una colisión. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{partes/img/depth-parallel-1-topdown.png}
-    \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista de arriba hacia abajo.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista de arriba hacia abajo. Ambos obstáculos están dentro del campo de visión, las trayectorias generadas se dirigen hacia el espacio entre los obstáculos.}
+    \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos (1). Vista de arriba hacia abajo.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos (1). Vista de arriba hacia abajo. Ambos obstáculos están dentro del campo de visión, las trayectorias generadas se dirigen hacia el espacio entre los obstáculos.}
     \label{fig:depth-parallel-1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.25]{partes/img/depth-parallel-2-front.png}
-    \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal. Ambos obstáculos están dentro del campo de visión, las trayectorias generadas se dirigen hacia el espacio entre los obstáculos.}
+    \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos (2). Vista frontal.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos (2). Vista frontal. Ambos obstáculos están dentro del campo de visión, las trayectorias generadas se dirigen hacia el espacio entre los obstáculos.}
     \label{fig:depth-parallel-2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.32]{partes/img/depth-parallel-4-front-red.png}
-    \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal. Navegando entre el espacio entre los obstáculos.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal. Navegando entre el espacio entre los obstáculos. Ambos obstáculos están dentro del campo de visión, las trayectorias generadas se dirigen hacia el espacio entre los obstáculos.}
+    \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos (3). Vista frontal. Navegando entre el espacio entre los obstáculos.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos (3). Vista frontal. Navegando entre el espacio entre los obstáculos. Ambos obstáculos están dentro del campo de visión, las trayectorias generadas se dirigen hacia el espacio entre los obstáculos.}
     \label{fig:depth-parallel-4}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.32]{partes/img/depth-parallel-5-front-collision.png}
-    \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal. Colisión.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos. Vista frontal. En el momento que uno de los dos obstáculos desaparece del campo de visión, en lugar de continuar dirigiéndose hacia el espacio entre ambos obstáculos, la política intenta corregir la trayectoria para esquivar por el flanco en dirección \jim{-y_B} relativo al obstáculo, lo cual produce una colisión. }
+    \caption[Visualización 3D de un vuelo en la tercera configuración de obstáculos (4). Vista frontal. Colisión.]{Visualización 3D de un vuelo en la tercera configuración de obstáculos (4). Vista frontal. En el momento que uno de los dos obstáculos desaparece del campo de visión, en lugar de continuar dirigiéndose hacia el espacio entre ambos obstáculos, la política intenta corregir la trayectoria para esquivar por el flanco en dirección \jim{-y_B} relativo al obstáculo, lo cual produce una colisión. }
     \label{fig:depth-parallel-5}
 \end{figure}
 
@@ -235,40 +237,40 @@ Para evaluar esta preferencia fuerte a esquivar por el flanco en la dirección \
     \label{fig:config-4-wall}
 \end{figure}
 
-Todos los vuelos realizados en esta configuración terminaron en una colisión. Las figuras \ref{depth-wall-1}, \ref{depth-wall-2}, \ref{depth-wall-3}, \ref{depth-wall-4} y \ref{depth-wall-5} muestran capturas de la visualización 3D de un vuelo en esta configuración que resulto en colisión. En las figuras se observa como la política de evasión de obstáculos intenta generar trayectorias que se dirigen hacia la región en la dirección \jim{-y_B} en donde no hay información de profundidad, probablemente esperando encontrar el borde del obstáculo en esa dirección, pero como en esta configuración de obstáculos ese borde se encuentra hacia atrás, se produce una colisión.
+Todos los vuelos realizados en esta configuración terminaron en una colisión. Las figuras \ref{depth-wall-1}, \ref{depth-wall-2}, \ref{depth-wall-3}, \ref{depth-wall-4} y \ref{depth-wall-5} muestran una secuencia consecutiva de capturas de la visualización 3D de un vuelo en esta configuración que resultó en colisión. En las figuras se observa como la política de evasión de obstáculos intenta generar trayectorias que se dirigen hacia la región en la dirección \jim{-y_B} en donde no hay información de profundidad, probablemente esperando encontrar el borde del obstáculo en esa dirección, pero como en esta configuración de obstáculos ese borde se encuentra hacia atrás, se produce una colisión.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.23]{partes/img/depth-wall-1-front.png}
-    \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista frontal.]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista frontal.}
+    \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos (1). Vista frontal.]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos (1). Vista frontal.}
     \label{depth-wall-1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.25]{partes/img/depth-wall-2-top.png}
-    \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Búsqueda del borde del obstáculo (1).]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Las trayectorias se dirigen hacia la región en dirección \jim{-y_B} sin información de profundidad, probablemente buscando el borde del obstáculo.}
+    \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos (2). Vista de arriba hacia abajo. Búsqueda del borde del obstáculo.]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos (2). Vista de arriba hacia abajo. Las trayectorias se dirigen hacia la región en dirección \jim{-y_B} sin información de profundidad, probablemente buscando el borde del obstáculo.}
     \label{depth-wall-2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.25]{partes/img/depth-wall-3-try-arround.png}
-    \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Búsqueda del borde del obstáculo (2).]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Las trayectorias continúan dirigiéndose hacia la región en dirección \jim{-y_B} sin información de profundidad, probablemente buscando el borde del obstáculo.}
+    \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos (3). Vista de arriba hacia abajo. Búsqueda del borde del obstáculo.]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos (3). Vista de arriba hacia abajo. Las trayectorias continúan dirigiéndose hacia la región en dirección \jim{-y_B} sin información de profundidad, probablemente buscando el borde del obstáculo.}
     \label{depth-wall-3}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.25]{partes/img/depth-wall-4-still-go-arround.png}
-    \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Búsqueda del borde del obstáculo (3).]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Las trayectorias continúan dirigiéndose hacia la región en dirección \jim{-y_B} sin información de profundidad, probablemente buscando el borde del obstáculo.}
+    \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos (4). Vista de arriba hacia abajo. Búsqueda del borde del obstáculo.]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos (4). Vista de arriba hacia abajo. Las trayectorias continúan dirigiéndose hacia la región en dirección \jim{-y_B} sin información de profundidad, probablemente buscando el borde del obstáculo.}
     \label{depth-wall-4}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.25]{partes/img/depth-wall-5-crash.png}
-    \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Colisión.]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Al no conseguir el borde del obstáculo a tiempo, se produce una colisión.}
+    \caption[Visualización 3D de un vuelo en la cuarta configuración de obstáculos (5). Vista de arriba hacia abajo. Colisión.]{Visualización 3D de un vuelo en la cuarta configuración de obstáculos. Vista de arriba hacia abajo. Al no conseguir el borde del obstáculo a tiempo, se produce una colisión.}
     \label{depth-wall-5}
 \end{figure}
 
@@ -299,7 +301,7 @@ En la tabla \ref{table:sim-results} se muestra un resumen de los resultados obte
 
 \label{sec:results-SOTEN}
 
-En esta sección se describen las configuraciones y resultados de los vuelos realizados sobre la plataforma física de implementación (QUAV SOTEN\footnote[1]{En la figura \ref{fig:SOTEN} se muestra al QUAV SOTEN.}) en un entorno de la vida real. Esto vuelos fueron ejecutados en un campo de vuelo para drones ubicado en la prefectura de Chiba, Japón; las condiciones climáticas del día fueron: soleado con un ligero viento en dirección hacia el oeste. Durante los vuelos, un piloto experto estuvo preparado para controlar manualmente el QUAV en caso de que una colisión fuera inminente. En esta sección se utilizara el termino ``colision'' para referirse al evento de interrumpir el vuelo autónomo para evitar una colisión inminente.
+En esta sección se describen las configuraciones y resultados de los vuelos realizados sobre la plataforma física de implementación (QUAV SOTEN\footnote[1]{En la figura \ref{fig:SOTEN} se muestra al QUAV SOTEN.}) en un entorno de la vida real. Esto vuelos fueron ejecutados en un campo de vuelo para drones ubicado en la prefectura de Chiba, Japón; las condiciones climáticas del día fueron: soleado con un ligero viento en dirección hacia el oeste. Durante los vuelos, un piloto experto estuvo preparado para controlar manualmente el QUAV en caso de que una colisión fuera inminente. En esta sección se utilizara el termino ``colision'' para referirse al evento de interrumpir el vuelo autónomo para evitar una colisión inminente. Al igual que durante los vuelos en simulación, la ejecución de la evasión de obstáculos está limitada al plano \jim{xy} del marco de referencia del cuerpo del QUAV.
 
 La primera configuración de obstáculos utilizada fue una configuración simple con un solo obstáculo en la línea directa de visión del QUAV, la figura \ref{real-1-single-0-setup} muestra una fotografía ilustrada que describe la configuración.
 
