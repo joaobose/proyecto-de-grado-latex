@@ -280,20 +280,20 @@ En la tabla \ref{table:sim-results} se muestra un resumen de los resultados obte
 
 \begin{table}[h]
 \centering
-\begin{tabular}{||c || c | c | c||} 
+\begin{tabular}{||c || c | c | c | c | c | c||} 
  \hline
- \textbf{Configuración} & \jim{N_{total}} & \jim{N_{exito}} & \textbf{porcentaje de éxito} \\ [0.5ex] 
+ \textbf{Configuración} & \jim{N} & \jim{N_{e}} & \textbf{P} & \jim{\bar{D}} & \jim{\max(D)} & \jim{\min(D)} \rule{0pt}{2.6ex} \\ [0.4ex] 
  \hline\hline
- Obstáculo simple              & 10 & 10 & 100\% \\ 
+ Obstáculo simple              & 10 & 10 & \textbf{100\%} & 3.1 & 3.4 & 2.7 \\ 
  \hline
- Dos obstáculos consecutivos   & 10 & 10 & 100\% \\
+ Dos obstáculos consecutivos   & 10 & 10 & \textbf{100\%} & 3.7 & 4 & 3.3 \\
  \hline
- Dos obstáculos paralelos      & 10 & 2  & 20 \% \\
+ Dos obstáculos paralelos      & 10 & 2  & \textbf{20 \%} & N/A & N/A & N/A \\
  \hline
- Obstáculo con pared izquierda & 10 & 0  & 0  \% \\
+ Obstáculo con pared izquierda & 10 & 0  & \textbf{0  \%} & N/A & N/A & N/A \\
  \hline
 \end{tabular}
-\caption[Resumen de los resultados obtenidos en los vuelos en simulación.]{Resumen de los resultados obtenidos en los vuelos en simulación. \jim{N_{total}} y \jim{N_{exito}} son el numero de vuelos totales y sin colisión respectivamente.}
+\caption[Resumen de los resultados obtenidos en los vuelos en simulación.]{Resumen de los resultados obtenidos en los vuelos en simulación. \jim{N} y \jim{N_{e}} son el numero de vuelos totales y sin colisión respectivamente. \textbf{P} es el porcentaje de vuelos sin colisión. \jim{\bar{D}}, \jim{\max(D)} y \jim{\min(D)} son la desviación máxima promedio, máxima y mínima respectivamente (en metros).}
 \label{table:sim-results}
 \end{table}
 
@@ -447,16 +447,16 @@ Los vuelos realizados permiten evaluar la estabilidad del algoritmo de evasión 
 
 \begin{table}[h]
 \centering
-\begin{tabular}{||c || c | c | c||} 
+\begin{tabular}{||c || c | c | c | c | c | c||} 
  \hline
- \textbf{Configuración} & \jim{N_{total}} & \jim{N_{exito}} & \textbf{porcentaje de éxito} \\ [0.5ex] 
+ \textbf{Configuración} & \jim{N} & \jim{N_{e}} & \textbf{P} & \jim{\bar{D}} & \jim{\max(D)} & \jim{\min(D)} \rule{0pt}{2.6ex} \\ [0.4ex] 
  \hline\hline
- Obstáculo simple              & 11 & 10 & 90\% \\ 
+ Obstáculo simple              & 11 & 10 & \textbf{90\%} & 3.2 & 4.5 & 2 \\ 
  \hline
- Dos obstáculos paralelos      & 3 &  2  & 66\% \\
+ Dos obstáculos paralelos      & 3 &  2  & \textbf{66\%} & 4 & 4.9 & 3.1 \\
  \hline
 \end{tabular}
-\caption[Resumen de los resultados obtenidos en los vuelos en entornos de la vida real.]{Resumen de los resultados obtenidos en los vuelos en entornos de la vida real. \jim{N_{total}} y \jim{N_{exito}} son el numero de vuelos totales y sin colisión inminente respectivamente.}
+\caption[Resumen de los resultados obtenidos en los vuelos en entornos de la vida real.]{Resumen de los resultados obtenidos en los vuelos en entornos de la vida real. \jim{N} y \jim{N_{e}} son el numero de vuelos totales y sin colisión inminente respectivamente. \textbf{P} es el porcentaje de vuelos sin colisión inminente. \jim{\bar{D}}, \jim{\max(D)} y \jim{\min(D)} son la desviación máxima promedio, máxima y mínima respectivamente (en metros).}
 \label{table:real-results}
 \end{table}
 

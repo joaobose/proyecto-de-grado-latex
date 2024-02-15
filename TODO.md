@@ -1,16 +1,22 @@
-# Capitulo 5 y 6
-
-- Agregar desviaciones en la tabla de resumen de los resultados.
-
-- Agregar comparación entre simulación y realidad, quizas una combinación de las dos tablas.
-
-- Colocar tablas para la comparación de los valores de la función de costo, adicionamente, profundizar un poco en la explicacion y de aporte en el benchmark (voices de Gerardo).
+# Capitulo 5
 
 - Modificar el resumen del capitulo 5 para que se refleje que lo que hizo es realmente el corazon del trabajo, en el sentido de que se logro implementar el algoritmo con los pocos recursos de computo y sobretodo, en concordancia con el entonrno de trabajo de ACSL.
 
+# Capitulo 6
+
+- Colocar tablas para la comparación de los valores de la función de costo, adicionamente, profundizar un poco en la explicacion y de aporte en el benchmark (voices de Gerardo).
+
+- Agregar tabla de comparación de la particion del dataset en _caminos que van hacia la izquierda_ y _caminos que no van hacia la izquierda_.
+
+- Argumentar la presencia de un pequeño Bias en el dataset y como esto se amplifica por el hecho de que el dataset tiene 7 veces mas samples que el dataset original.
+
+- Mencionar la posibilidad de problema de sintonizacion del controlador, mencionar limitaciones del controlador y la imposibilidad de realizar cambios o controlar el controlador a bajo nivel. Asi como tambien la presencia de un controlador proporcional improvisado que no es el mejor para el caso.
+
+- Si hace falta: Mencionar la posibilidad de que es posible que se haya alcanzado un minimo local con respecto al dataset de 1 m/s (un minimo local en donde la politica solo va hacia la izquierda pues eso cubre la mayoria de los casos).
+
 ---
 
-- Explicar o resaltar la limitacion del ACSL API para enviar velocidades angulares, explicar el control propocional improvisado.
+- Agregar comparación entre simulación y realidad, quizas una combinación de las dos tablas.
 
 - Si es posible, agregar más metricas para los vuelos, algo que permita evaluar las metricas. Quizas agregar el resto de graficas (las de velocidad, posicion, attitude, etc).
 
@@ -29,15 +35,3 @@
 - Resaltar mucho (voice de Gerardo) todo esto
 
 - Creo que esto se pudiera agregar luego de las recomendaciones a trabajos futuros, como un sort of "para finalizar, es importante resaltar que este trabajo adicionalmente logro..."
-
-# Con respecto al problema de solo ir hacia la izquierda
-
-- Agregar tabla de comparación de la particion del dataset en _caminos que van hacia la izquierda_ y _caminos que no van hacia la izquierda_.
-
-- Argumentar la presencia de un pequeño Bias en el dataset y como esto se amplifica por el hecho de que el dataset tiene 7 veces mas samples que el dataset original.
-
-- Mencionar la posibilidad de problema de sintonizacion del controlador, mencionar limitaciones del controlador y la imposibilidad de realizar cambios o controlar el controlador a bajo nivel.
-
-- Si hace falta: Mencionar la posibilidad de que es posible que se haya alcanzado un minimo local con respecto al dataset de 1 m/s (un minimo local en donde la politica solo va hacia la izquierda pues eso cubre la mayoria de los casos).
-
----
