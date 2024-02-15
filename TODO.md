@@ -4,21 +4,19 @@
 
 # Capitulo 6
 
-- Colocar tablas para la comparación de los valores de la función de costo, adicionamente, profundizar un poco en la explicacion y de aporte en el benchmark (voices de Gerardo).
-
-- Agregar tabla de comparación de la particion del dataset en _caminos que van hacia la izquierda_ y _caminos que no van hacia la izquierda_.
-
 - Argumentar la presencia de un pequeño Bias en el dataset y como esto se amplifica por el hecho de que el dataset tiene 7 veces mas samples que el dataset original.
 
-- Mencionar la posibilidad de problema de sintonizacion del controlador, mencionar limitaciones del controlador y la imposibilidad de realizar cambios o controlar el controlador a bajo nivel. Asi como tambien la presencia de un controlador proporcional improvisado que no es el mejor para el caso.
-
-- Si hace falta: Mencionar la posibilidad de que es posible que se haya alcanzado un minimo local con respecto al dataset de 1 m/s (un minimo local en donde la politica solo va hacia la izquierda pues eso cubre la mayoria de los casos).
+- Resaltar un poco en la explicacion de la comparación de costos que ese benchmark fue propuesto en este trabajo (voices de Gerardo).
 
 ---
 
-- Agregar comparación entre simulación y realidad, quizas una combinación de las dos tablas.
+- Si hace falta: Mencionar la posibilidad de problema de sintonizacion del controlador, mencionar limitaciones del controlador y la imposibilidad de realizar cambios o controlar el controlador a bajo nivel. Asi como tambien la presencia de un controlador proporcional improvisado que no es el mejor para el caso.
 
-- Si es posible, agregar más metricas para los vuelos, algo que permita evaluar las metricas. Quizas agregar el resto de graficas (las de velocidad, posicion, attitude, etc).
+- Si hace falta: Mencionar la posibilidad de que es posible que se haya alcanzado un minimo local con respecto al dataset de 1 m/s (un minimo local en donde la politica solo va hacia la izquierda pues eso cubre la mayoria de los casos).
+
+- Si hace falta: Agregar comparación entre simulación y realidad, quizas una combinación de las dos tablas.
+
+- Si hace falta: Agregar más metricas para los vuelos, algo que permita evaluar las metricas. Quizas agregar el resto de graficas (las de velocidad, posicion, attitude, etc).
 
 # Conclusion
 
@@ -26,7 +24,7 @@
 
 - Algo tiene que haberle quedado a ACSL, por ejemplo:
 
-- Que se logro implementar el algoritmo en SOTEN y que si se logra realizar un finetune adecuado, se puede tener _ya funcionando_ un algoritmo de evasion de obstaculos.
+- Que se logro implementar el algoritmo en SOTEN y que si se logra realizar un finetune adecuado, se puede tener _ya funcionando_ un algoritmo de evasion de obstáculos.
 
 - Que se Probó lo complicado que puede ser ejecutar aplicaciones con redes neuronales en un sistema embebido como lo es un dron ligero, y que sin embargo, se logro ejecutar satisfactoriamente.
 
