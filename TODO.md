@@ -1,12 +1,4 @@
-# Capitulo 5
-
-- Modificar el resumen del capitulo 5 para que se refleje que lo que hizo es realmente el corazon del trabajo, en el sentido de que se logro implementar el algoritmo con los pocos recursos de computo y sobretodo, en concordancia con el entonrno de trabajo de ACSL.
-
 # Capitulo 6
-
-- Argumentar la presencia de un pequeño Bias en el dataset y como esto se amplifica por el hecho de que el dataset tiene 7 veces mas samples que el dataset original.
-
-- Resaltar un poco en la explicacion de la comparación de costos que ese benchmark fue propuesto en este trabajo (voices de Gerardo).
 
 ---
 
