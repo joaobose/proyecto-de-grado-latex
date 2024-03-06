@@ -216,6 +216,63 @@ Una vez que todas las trayectorias han sido proyectadas, se escoge una para ejec
 
 Este capítulo abordó el problema de la evasión de obstáculos, centrándose en dos variantes de planificación local de caminos: aquellas que requerían información global previa y las que se basaban únicamente en la información de los sensores a bordo del vehículo. La Sección \ref{sec::prev-global} exploró desarrollos relacionados con la primera variante, mientras que la Sección \ref{sec::prev-local} se centró en la segunda. Además, se profundizó en \textit{Learning high-speed flight in the wild} en la Sección \ref{sec::prev-agile-autonomy}, destacando su papel como un antecedente crucial para el desarrollo del presente trabajo. Este capítulo proporcionó una visión del estado actual en el campo, resaltando las perspectivas relevantes para la resolución del problema de evasión de obstáculos para QUAVs.
 
+La Tabla \ref{tab:prev-summary} resume los métodos explorados en este capítulo, destacando sus características más relevantes.
+
+\begin{table}[H]
+\scriptsize
+\centering
+\begin{tabular}{|c|c|p{60mm}|}
+\hline
+
+\textbf{Método} & \textbf{Dominio}\footnotemark & \textbf{Consideraciones}\\ \hline
+
+\textit{Basado en A*} \cite{shi2018collision} & Global & 
+    - Genera trayectorias estáticas. \newline
+    - Require modelado del entorno.
+\\ \hline
+
+\textit{Campos de potencial} \cite{lifen2016path} & Global/Local & 
+    - Puede atascarse en minímos locales. \newline
+    - Produce trayectorias no óptimas.
+\\ \hline
+
+\textit{P-CAL} \cite{Zhang2019} & Global/Local & 
+    - Requiere nube de puntos global del entorno. \newline
+    - Require sensor LiDAR.
+\\ \hline
+
+\textit{P-CNN} \cite{Yang2021} & Local & 
+    - Entrenamiento supervisado. \newline
+    - Require base de datos de entrenamiento. \newline
+    - Navegación arbitraria.
+\\ \hline
+
+\textit{Q-learning} \cite{Tu2023} & Local & 
+    - Entrenamiento por reforzamiento. \newline
+    - Limitado a espacios de acciones discretas. \newline
+    - Sensible a la elección de función de recompensa. 
+\\ \hline
+
+\textit{Soft Actor-Critic} \cite{Xue2021} & Local & 
+    - Entrenamiento por reforzamiento. \newline
+    - Sensible a la elección de función de recompensa. 
+\\ \hline
+
+\textit{Learning high-speed flight in the wild} \cite{Loquercio2021} & Local & 
+    - Entrenamiento por imitación dentro de un entorno de simulación. \newline
+    - Altamente flexible. \newline
+    - Sensible a la velocidad de ejecución del QUAV. \newline
+    - Require ajuste-fino.
+\\ \hline
+
+\end{tabular}
+
+\caption[Resumen de los métodos explorados durante la revisión del estado del arte.]{Resumen de los métodos explorados durante la revisión del estado del arte.}
+\label{tab:prev-summary}
+\end{table}
+
+\footnotetext{Global implica que el método requiere información global previa, local implica que el método opera con la información disponible a bordo del vehículo.}
+
 En el siguiente capítulo se describe la implementación de la solución propuesta por este trabajo, teniendo en cuenta el contexto de la plataforma disponible, así como también fundamentando la selección del algoritmo de evasión de obstáculos y detallando sus componentes de implementación.
     
    
