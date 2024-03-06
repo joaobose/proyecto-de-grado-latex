@@ -20,8 +20,8 @@
 
 - Varios correciones en capitulo 7.
 
-# Correcciones pendientes
-
 - Cambiar secciones de 4to nivel por listas o subtítulos.
+
+# Correcciones pendientes
 
 - Tabla comparativa de los trabajos revisados como resumen del capítulo 4.

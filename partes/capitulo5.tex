@@ -65,11 +65,11 @@ Este componente es el encargado de generar los mapas de profundidad necesarios p
 
 Este componente es el encargado de predecir trayectorias libres de colisión a partir de los mapas de profundidad generados por el puente de profundidad y del estado del QUAV obtenido por el puente del FCU. El procesamiento de este componente se divide en dos hilos: el hilo principal, que realiza inferencia en la red neuronal de \textit{Learning High Speed Flight in the Wild} \cite{Loquercio2021} cada vez que llega el mensaje \texttt{NEW\_DEPTH\_IMAGE}; y el hilo del estado del FCU, que se encarga de recibir los mensajes \texttt{FCU\_STATE} para mantener una copia global del último estado del QUAV.
 
-\subsubsection{Hilo del estado del FCU}
+\subsubsection*{Hilo del estado del FCU}
 
 El procesamiento realizado por este hilo es relativamente simple; cada vez que llega un mensaje \texttt{FCU\_STATE} se obtiene el \textit{buffer} binario del cuerpo del mensaje, se convierte la representación binaria en una representación estructurada y se le asigna a la variable global \texttt{fcu\_state}. La variable \texttt{fcu\_state}, al ser global, es accesible por ambos hilos. Para mantener la integridad de \texttt{fcu\_state} y evitar condiciones de carrera, el acceso de escritura y lectura esta controlado por un semáforo de exclusión mutua (\textit{mutex}).
 
-\subsubsection{Hilo principal}
+\subsubsection*{Hilo principal}
 
 El procesamiento del hilo principal puede resumirse en cinco etapas: primero, esperar por un nuevo mensaje de \texttt{NEW\_DEPTH\_IMAGE}; segundo, obtener el último mapa de profundidad de la memoria compartida; tercero, detectar la presencia de obstáculos en el mapa de profundidad, si no existe obstáculo cercano, repetir desde la primera etapa; cuarto, preparar las entradas de la red y realizar inferencia; finalmente, seleccionar las trayectorias que cumplan \jim{c^{*} / c_k \geq 0.95 \, (c^{*} = \min_k c_k)}, codificarlas en un \textit{buffer} binario y enviar un mensaje de \texttt{NEW\_TRAJ} utilizando el \textit{buffer} como cuerpo del mensaje.
 
@@ -170,11 +170,11 @@ Es importante mencionar, que para que la red neuronal de \textit{Learning High S
 
 Este componente es el encargado de ejecutar las trayectorias predichas por el proceso de inferencia, así como también manejar el estado de la ejecución del vuelo. El procesamiento de este componente se divide en dos hilos: el hilo de nuevas trayectorias, que recibe los mensajes de \texttt{NEW\_TRAJ} y proyecta las trayectorias en el espacio de los polinomios de grado \jim{N = 3} de acuerdo a lo especificado en la Sección \ref{sec:prev-aoa-traj}; y el hilo principal, que ejecuta la trayectoria mas reciente y gestiona el estado del vuelo.
 
-\subsubsection{Hilo de nuevas trayectorias}
+\subsubsection*{Hilo de nuevas trayectorias}
 
 Este hilo se encarga de procesar los mensajes de \texttt{NEW\_TRAJ}. Cuando llega un mensaje de \texttt{NEW\_TRAJ}, se decodifica \jim{\mathbb{T}_n = \{ (\tau_{n}^{k}, c_k) | \, 0 \leq k < \beta \}} y \jim{t_{ref}}, con \jim{\beta} siendo el número  de trayectorias que pasaron la selección \jim{c^* / c \geq 0.95} y \jim{t_{ref}} el tiempo en el que se construyó el mensaje, el tiempo \jim{t_{ref}} sirve como referencia al momento de evaluar la trayectoria; luego, por cada \jim{(\tau_{n}^{k}, c_k) \in \mathbb{T}_n}, se proyecta \jim{\tau_{n}^{k}} en el espacio de los polinomios de grado \jim{N = 3} resolviendo el problema de optimización de mínimos cuadrados descrito en la Sección \ref{sec:prev-aoa-traj}; posteriormente, a cada proyección \jim{\mu_k} se le escala el tiempo \jim{t} de acuerdo a lo descrito en la Sección \ref{sec:prev-aoa-traj} con \jim{v_{des} = 1} m/s; finalmente, se selecciona la proyección con menor costo \jim{c_k} y se le asigna a la variable global \texttt{current\_traj}. La variable \texttt{current\_traj}, al ser global, es accesible por ambos hilos. Para mantener la integridad de \texttt{current\_traj} y evitar condiciones de carrera,  el acceso de escritura y lectura está controlado por un semáforo de exclusión mutua (\textit{mutex}).
 
-\subsubsection{Hilo principal y máquina de estados}
+\subsubsection*{Hilo principal y máquina de estados}
 
 Este hilo se encarga de la ejecución de la trayectoria actual \texttt{current\_traj} y del manejo del estado del vuelo. Para gestionar el estado del vuelo, utiliza una máquina de estados, la máquina de estados es una estructura que se compone de: un conjunto de estados; una referencia al estado actual; y un espacio de variables compartidas entre estados, tal como el estado del QUAV. Cada estado tiene un identificador, un predicado que indica si se debe entrar a el estado y un procedimiento que se ejecuta en cada iteración que el estado se encuentra como estado actual.
 

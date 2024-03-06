@@ -13,23 +13,23 @@ Un vehículo aéreo no tripulado de cuatro rotores, también llamado \textit{Qua
 
 La configuración de componentes general de los QUAVs, si bien bastante amplia y llena de excepciones, cuando se remiten a los QUAVs comerciales, se puede englobar en: Un conjunto de sensores, que se utilizan principalmente para localizar el vehículo en el entorno; una unidad de control de vuelo (FCU, del inglés \textit{Flight Control Unit}), encargada de controlar la velocidad de rotación de los rotores; al menos una computadora a bordo (\textit{Onboard PC} en inglés), que se encarga de realizar el procesamiento necesario para llevar a cabo tareas de alto nivel, como la evasión de obstáculos y el mapeo del entorno; y una estación de control en tierra (GCS, del inglés \textit{Ground Control Station}) \cite{multidrone2017review}. 
 
-\subsubsection{Sensores}
+\subsubsection*{Sensores}
 \label{sec:QUAV-sensors}
 
-Es de vital importancia que un QUAV tenga la capacidad de estimar su estado (orientación, altitud, posición y velocidad) utilizando solamente los componentes disponibles a bordo del vehículo. Para la estimación de orientación se utiliza una unidad de mediciones inerciales \cite{multidrone2017review} (IMU, del inglés \textit{Inertial Measurement Unit}) que se compone de un acelerómetro y giroscopio, ambos midiendo sus cantidades con respecto al marco de referencia del cuerpo del vehículo. Adicionalmente, también se puede utilizar un magnetómetro (brújula), para obtener la información de la orientación del vehículo con respecto al norte magnético del planeta tierra. Utilizando la información del IMU y del magnetómetro, el FCU puede estimar la orientación del cuerpo del vehículo con un nivel de precisión aceptable \cite{multidrone2017review}. 
+Es de vital importancia que un QUAV tenga la capacidad de estimar su estado (orientación, altitud, posición y velocidad) utilizando solamente los componentes disponibles a bordo del vehículo. Para la estimación de orientación se utiliza una unidad de mediciones inerciales \cite{multidrone2017review} (IMU, del inglés \textit{Inertial Measurement Unit}) que se compone de un acelerómetro y giroscopio, ambos midiendo sus cantidades con respecto al marco de referencia del cuerpo del vehículo. Adicionalmente, también se puede utilizar un magnetómetro (brújula), para obtener la información de la orientación del vehículo con respecto al norte magnético del planeta tierra. Utilizando la información del IMU y del magnetómetro, el FCU puede estimar la orientación del cuerpo del vehículo con un nivel de precisión aceptable \cite{multidrone2017review}.
 
 Para la estimación de posición y velocidad se puede emplear localización visual utilizando algoritmos de localización y mapeo con cámaras estereoscópicas o LiDAR \cite{multidrone2017review}. Estos algoritmos pueden llegar a tener limitaciones considerables cuando las condiciones de iluminación no son ideales y su rendimiento en entornos al aire libre es limitado debido a la uniformidad de las texturas del entorno \cite{multidrone2017review}. Alternativamente se puede utilizar GPS (del inglés \textit{Global Postionaing System}) para la localización a partir de señales de satélite \cite{multidrone2017review}; en este esquema la posición es estimada mediante triangulación entre el vehículo y un sistema de satélites, la velocidad es estimada utilizando el efecto \textit{doppler} y la altitud se estima utilizando un barómetro (sensor de presión atmosférica) o un sistema sonar \cite{multidrone2017review}. La localización por GPS es bastante efectiva para su uso en entornos al aire libre, pero no es posible utilizarlo en aplicaciones que naveguen en interiores debido al requerimiento de tener recepción de las señales de los satélites. Es común que un QUAV tenga acceso tanto a localización por visión como a localización por GPS, alternando entre ambas dependiendo de las condiciones de iluminación y recepción del satélite.
 
-\subsubsection{FCU}
+\subsubsection*{FCU}
 \label{sec:QUAV-FCU}
 
 Este componente maneja la estimación del estado del QUAV a partir de las señales de los sensores, así como el cálculo de las acciones de control para mantener estabilidad durante el vuelo. El FCU ofrece distintos modos de control, desde asistencia de orientación, asistencia en posición y asistencia de velocidad; todos estos con la finalidad de que controlar el QUAV en alto nivel sea una tarea más sencilla tanto para un operador como para otro algoritmo de alto nivel (como la evasión de obstáculos, el caso de este trabajo). 
 
-\subsubsection{Computadora a bordo}
+\subsubsection*{Computadora a bordo}
 
 Ejecuta los algoritmos de alto nivel que requieren más poder de cómputo para su procesamiento, tales como algoritmos de localización por visión, inferencia con redes neuronales, procesamiento y \textit{broadcasting} de imágenes, mapeo del entorno, entre otros. Algunas se equipan con unidades de procesamiento gráfico (GPU, del inglés \textit{Graphics Processing Unit}) que contribuyen en la aceleración de las operaciones de procesamiento distribuido o de inferencia de redes neuronales, en ambos casos utilizando tecnologías como CUDA (Arquitectura Unificada de Dispositivos de Cómputo, del inglés: \textit{Compute Unified Device Architecture}). La solución propuesta en el presente trabajo se implementa y ejecuta justamente dentro de la computadora a bordo del QUAV.
 
-\subsubsection{GCS}
+\subsubsection*{GCS}
 
 Estación de control en el suelo, permite que el operador en suelo coordine las operaciones que hace el QUAV, en otras palabras, sirve de interfaz de alto nivel entre el operador y las funciones implementadas en el QUAV. Usualmente se utiliza para planificar vuelos autónomos, monitorizar el estado de los sensores, realizar \textit{streaming} de las imágenes de los sensores visuales del vehículo (cámaras), lanzar rutinas de control como aterrizaje o despegue automático, así como también instrucciones especificas de la aplicación (por ejemplo, entregar paquete para QUAV orientado a \textit{delivery}).
 
@@ -46,7 +46,7 @@ En la Figura \ref{fig:QUAV-components} se muestra el diagrama de comunicación g
 
 En este trabajo no se hace una revisión completa del modelo cinemático y dinámico de un QUAV, sin embargo, es necesario discutir algunos conceptos que son utilizados en el desarrollo e implementación del algoritmo de evasión de obstáculos.
 
-\subsubsection{Sistemas de referencia}
+\subsubsection*{Sistemas de referencia}
 
 Existen dos sistemas de referencia de interés para el manejo de QUAV: el sistema de referencia inercial \jim{E}, usualmente anclado a la superficie de la tierra; y el sistema de referencia del cuerpo del vehículo \jim{B}, que se encuentra anclado a centro del marco del QUAV. Tal como se aprecia en la Figura \ref{fig:QUAV-model}, la rotación del sistema del cuerpo \jim{B}, es representada por \jim{\phi,\theta,\psi} \cite{multidrone2015modeling}, donde: \jim{\phi} es denominado rolido \textit{roll} y representa la rotación con respecto al eje inercial \jim{x}; \jim{\theta} es denominado \textit{pitch} y representa la rotación con respecto al eje inercial \jim{y}; y \jim{\psi} es denominado \textit{yaw} y representa la rotación con respecto al eje inercial \jim{z}. Por convención, la velocidad lineal del vehículo \jim{V_B} se expresa en el sistema \jim{B}.
 
@@ -128,11 +128,11 @@ Estas matrices son bastante útiles pues permiten cambiar de sistema de referenc
     V_{E} = R_{B}^{E} V_{B}
 \end{equation}
 
-\subsubsection{Encabezamiento}
+\subsubsection*{Encabezamiento}
 
 Se le llama encabezamiento (del inglés \textit{heading}) al vector unitario que apunta en la dirección del eje \jim{y_B} (Figura \ref{fig:QUAV-model}), este vector es importante pues determina la dirección de movimiento preferida del QUAV ya que es hacia donde generalmente se orientan los sensores visuales (cámaras estereoscópicas, cámaras de inspección, entre otros). Es esta dirección la que se considera como ``adelante'' en el contexto de las aplicaciones que trabajan con QUAVs.
 
-\subsubsection{Modos de vuelo}
+\subsubsection*{Modos de vuelo}
 
 Cada rotor del QUAV gira independientemente, la combinación de distintas velocidades de rotación de los rotores produce distintos patrones o modos de vuelo. La Figura \ref{fig:QUAV-modes} muestra los cuatro modos de vuelos básicos de un QUAV; cada uno produce una rotación sobre uno de los ángulos \jim{\phi,\theta,\psi}.
 
@@ -302,7 +302,7 @@ Un ejemplo de una FFNN de muestra en la Figura \ref{fig:nn-layers}. Las FFNN tie
 
 El algoritmo de retro-propagación (del inglés \textit{backpropagation}) es un algoritmo de aprendizaje supervisado que se utiliza para entrenar redes neuronales. Este algoritmo ajusta los pesos de las conexiones entre los nodos de la red neuronal de manera que la red pueda realizar una tarea en específico (clasificación o regresión por ejemplo). El algoritmo de retro-propagación utiliza el denominado descenso de gradiente (del inglés \textit{Gradient Descent}), el cual es un método utilizado para minimizar una función de pérdida que cuantifica el error entre las predicciones de la red y los valores objetivos asociados a la tarea seleccionada.
 
-\subsubsection{Descenso de gradiente}
+\subsubsection*{Descenso de gradiente}
 
 El aprendizaje automático supervisado presenta iterativamente un conjunto de patrones de entrada (\jim{X}) y de salida (\jim{Y}) al modelo, en este caso una red neuronal. En cada iteración se modifican los pesos \jim{\theta} de acuerdo a una regla de actualización cuyo objetivo es que la salida de la red se asemeje a la salida deseada \cite{Gurney1997}. Para realizar estos cambios, la regla de actualización debe cuantificar que tan bien la red neuronal modela los datos que se le presentan; es por esto que se define una función de costo o error \textit{E} que dado un dado de entrada \jim{x_k}, el vector deseado \jim{y_k} y los pesos \jim{\theta} de la red, retorna \jim{E(x_k, y_k, \theta)} que cuantifica que tan similar a \jim{y_k} es la salida de la red (parametrizada por \jim{\theta}) cuando se le pasa como entrada \jim{x_k}. El objetivo es que la red sea capaz de modelar la relación entre los patrones de entrada \jim{X} y salida \jim{Y}, en otras palabras, se quiere minimizar la función descrita en la Ecuación \ref{eq:loss}; esta función se denomina función de pérdida, donde \jim{|X| = |Y|} y \jim{x_k, y_k} son el patrón entrada salida número \jim{k} con \jim{x_k \in X \wedge y_k \in Y}. Finalmente el problema de minimización tratado en este trabajo es el descrito en la Ecuación \ref{eq:optim-problem}.
 
@@ -349,7 +349,7 @@ Inicializar los pesos \jim{\theta} en ceros o en valores aleatorios cercanos a c
 }
 \end{algorithm}
 
-\subsubsection{Sub-ajuste y sobre-ajuste}
+\subsubsection*{Sub-ajuste y sobre-ajuste}
 
 La arquitectura de una red neuronal (número de capas y de nodos por capa) y el criterio de convergencia del descenso de gradiente deben elegirse cuidadosamente para evitar sesgos que puedan afectar negativamente el rendimiento del modelo. Hay dos tipos de errores a los que puede conducir un sesgo inapropiado: sub-ajuste y sobre-ajuste. El sub-ajuste (del inglés \textit{underfitting}) ocurre cuando la arquitectura de la red es demasiado simple para representar la relación entre los datos de entrada y los valores deseados del conjunto de entrenamiento, o cuando el criterio de convergencia es demasiado temprano. Por otro lado, el sobre-ajuste (del inglés \textit{overfitting}) ocurre cuando la arquitectura de la red es muy compleja o se realizan demasiadas iteraciones del descenso de gradiente, lo que hace que el modelo se ajuste demasiado al conjunto de datos de entrenamiento. Los modelos con sub-ajuste o sobre-ajuste no generalizan correctamente y, por lo tanto, no sera buenos al momento de realizar inferencia sobre datos que estén más allá de lo que se observó durante el entrenamiento.
 
@@ -381,15 +381,15 @@ Entre el extractor de características y la parte FC se hace un proceso de aplan
 
 La comunicación entre procesos, comúnmente abreviada como IPC (por sus siglas en inglés, Inter-Process Communication), se refiere al conjunto de técnicas y mecanismos utilizados para permitir que diferentes procesos intercambien información entre sí de forma asíncrona. Esta comunicación es fundamental en escenarios donde varias aplicaciones deben colaborar para lograr una funcionalidad más amplia. A través de IPC, los procesos pueden compartir datos, sincronizar su ejecución, coordinar tareas y garantizar la seguridad y eficiencia en la gestión de recursos compartidos. Algunos de los métodos de IPC utilizados comúnmente son las tuberías (del inglés \textit{pipes}), los \textit{sockets} y la memoria compartida \cite{IPCEval2015}.
 
-\subsection{Tuberías}
+\subsection*{Tuberías}
 
 Una tubería o \textit{pipe} es un método de comunicación unidireccional que permite la transferencia serial de información desde el proceso escritor al proceso lector. La capacidad de transferencia de datos de un tubería esta limitada por un búfer de tipo primero que entra, primero que sale (FIFO, del inglés \textit{First In, First Out}); cuando el escritor envía datos estos se agregan al búfer, de forma análoga cuando el lector procesa datos estos se eliminan del búfer; si el escritor escribe más rápido de lo que el lector consume datos y si el búfer de la tubería está lleno, el escritor se bloqueará hasta que haya más capacidad disponible. De manera similar, si el lector lee cuando la tubería está vacía, el lector se bloqueará \cite{IPCEval2015}. Con una tubería se pueden implementar esquemas de comunicación de mayor nivel de tipo productor-procesador (Pub/Sub, del inglés \textit{Publisher/Subscriber}) siempre y cuando solo exista solo un productor y solo un procesador.
 
-\subsection{\textit{Sockets}}
+\subsection*{\textit{Sockets}}
 
 Un \textit{socket} es un mecanismo de comunicación bidireccional que se puede utilizar para comunicar un proceso con otro proceso, bien sea dentro de la misma máquina o en una máquina diferente \cite{IPCEval2015}. Los datos enviados a través de un \textit{socket} se dividen en fragmentos llamados paquetes. Un protocolo, como TCP/IP, especifica cómo se transmiten estos paquetes a través del \textit{socket}. Un \textit{socket} se identifica de manera única mediante una combinación de la dirección IP de la máquina y un número de puerto. La bidireccionalidad de los \textit{sockets} permite construir esquemas de comunicación a alto nivel sin restricciones de cardinalidad (tales como Pub/Sub con muchos productores y muchos receptores), si bien la implementación de estos esquemas puede ser complicado,  existen múltiples librerías de implementaciones estables de estos, tales como ZeroMQ \cite{zeroMQ}.
 
-\subsection{Memoria compartida}
+\subsection*{Memoria compartida}
 
 La memoria compartida permite a dos o más procesos acceder al mismo espacio de memoria, este espacio es mapeado al espacio de direcciones de memoria de cada uno de los procesos participantes \cite{IPCEval2015}. Dado que esta comunicación es similar a cualquier otra referencia de memoria, no implica ninguna llamada al sistema ni latencias inducidas por protocolos. Por lo tanto, generalmente la memoria compartida ofrece latencias muy bajas. Sin embargo, el sistema no proporciona ningún mecanismo sincronización implícito para los accesos a la memoria compartida; esto significa que el uso descuidado de la memoria compartida puede producir condiciones de carrera \cite{IPCEval2015}. El uso de mecanismos de primitivas como los semáforos o los \textit{mutex} pueden habilitar el uso de la memoria compartida sin riesgo de inconsistencia en los datos, pero su implementación es responsabilidad del programador.
 
